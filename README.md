@@ -1,8 +1,4 @@
 # snippets
-## Generate ToCs
-```
-bash gen-toc
-```
 
 ## ToC
 * [ansible](ansible/ansible.md)
@@ -14,3 +10,7 @@ bash gen-toc
 * [linux](linux/linux.md)
 * [python](python/python.md)
 
+## Generate ToCs using [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+```
+bash gen-toc
+```
