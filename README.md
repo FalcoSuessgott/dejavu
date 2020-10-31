@@ -1,4 +1,8 @@
 # snippets
+## Generate ToCs
+```
+bash gen-toc
+```
 
 ## ToC
 * [ansible](ansible/ansible.md)
