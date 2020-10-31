@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
-
-for dir in */;do
-  echo "buildin toc for $dir"
-  gh-md-toc --insert $dir/*.md
-done
+for dir in */;do echo "buildin toc for $dir"; gh-md-toc --insert $dir/*.md; done
+git add . && git commit -m "bump" && git push
