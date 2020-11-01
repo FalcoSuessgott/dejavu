@@ -2,7 +2,7 @@
 
 [ $# -eq 0 ] && echo "no commit message provided." &&  exit 1
 echo "building main ToC"
-gh-md-toc */*.md > README.md 1>/dev/null
+gh-md-toc */*.md > README.md 
 sed '/^[[:space:]]*$/d' README.md
 sed -i '1s/^/# Wiki\n## ToC\n/' README.md
 
