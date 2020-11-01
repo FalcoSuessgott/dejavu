@@ -5,6 +5,7 @@
 
    * [General](kubernetes/kubernetes.md#general)
       * [default manifest yml](kubernetes/kubernetes.md#default-manifest-yml)
+      * [get possible defintion options](kubernetes/kubernetes.md#get-possible-defintion-options)
       * [auto generate a manifest](kubernetes/kubernetes.md#auto-generate-a-manifest)
    * [Pod](kubernetes/kubernetes.md#pod)
       * [create and expose a pod](kubernetes/kubernetes.md#create-and-expose-a-pod)

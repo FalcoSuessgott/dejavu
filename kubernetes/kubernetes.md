@@ -1,6 +1,7 @@
 <!--ts-->
    * [General](#general)
       * [default manifest yml](#default-manifest-yml)
+      * [get possible defintion options](#get-possible-defintion-options)
       * [auto generate a manifest](#auto-generate-a-manifest)
    * [Pod](#pod)
       * [create and expose a pod](#create-and-expose-a-pod)
@@ -20,7 +21,7 @@
       * [remove taint of node](#remove-taint-of-node)
       * [tolerant specification](#tolerant-specification)
 
-<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:05:08 PM CET -->
+<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:31:10 PM CET -->
 
 <!--te-->
 
@@ -33,6 +34,11 @@ metadata:
 
 spec:
 
+```
+
+## get possible defintion options
+```
+kubectl explain pod --recursivce | grep -A5 tolerations 
 ```
 
 ## auto generate a manifest 
