@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo "building main ToC"
+gh-md-toc "*/*.md" > README.md 
+for dir in */;do echo "buildin toc for $dir"; gh-md-toc --insert "$dir/*.md" 1>/dev/null; rm $dir/*{"orig", "toc"}*; done
+git add . && git commit -m "bump" && git push
