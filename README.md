@@ -3,7 +3,6 @@
 
    * [bash into container](docker/docker.md#bash-into-container)
 
-   * [ToC](kubernetes/kubernetes.md#toc)
    * [General](kubernetes/kubernetes.md#general)
       * [default manifest yml](kubernetes/kubernetes.md#default-manifest-yml)
       * [auto generate a manifest](kubernetes/kubernetes.md#auto-generate-a-manifest)

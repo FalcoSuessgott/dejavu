@@ -1,6 +1,4 @@
-# ToC
 <!--ts-->
-   * [ToC](#toc)
    * [General](#general)
       * [default manifest yml](#default-manifest-yml)
       * [auto generate a manifest](#auto-generate-a-manifest)
@@ -22,7 +20,7 @@
       * [remove taint of node](#remove-taint-of-node)
       * [tolerant specification](#tolerant-specification)
 
-<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:03:26 PM CET -->
+<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:05:08 PM CET -->
 
 <!--te-->
 
