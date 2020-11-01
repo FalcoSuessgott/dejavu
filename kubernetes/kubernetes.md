@@ -17,8 +17,12 @@
       * [Types](#types)
    * [DNS](#dns)
       * [FQDN](#fqdn)
+   * [Taint &amp; Tolerations](#taint--tolerations)
+      * [add taint to node](#add-taint-to-node)
+      * [remove taint of node](#remove-taint-of-node)
+      * [tolerant specification](#tolerant-specification)
 
-<!-- Added by: morelly_t1, at: Sat 31 Oct 2020 04:15:32 PM CET -->
+<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:02:13 PM CET -->
 
 <!--te-->
 
@@ -89,4 +93,27 @@ kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-ru
 db-1.dev.svc.cluster.local
 SERVICE.NAMESPACE.svc.cluster.local
 ```
+---
+
+# Taint & Tolerations
+> Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints
+> available effects: NoSchedule, PreferNoSchedule, NoExecute
+## add taint to node
+```
+kubectl taint nodes node1 key=value:NoSchedule
+```
+## remove taint of node
+```
+kubectl taint nodes node1 key:NoSchedule-
+```
+
+## tolerant specification
+```
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+``` 
+
 ---
