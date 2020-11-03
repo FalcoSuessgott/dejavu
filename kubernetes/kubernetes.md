@@ -4,10 +4,12 @@
       * [get possible defintion options](#get-possible-defintion-options)
       * [auto generate a manifest](#auto-generate-a-manifest)
    * [Pod](#pod)
+      * [Default Pod ressources](#default-pod-ressources)
       * [create and expose a pod](#create-and-expose-a-pod)
    * [ReplicaSet](#replicaset)
       * [update replicaset](#update-replicaset)
    * [Deployments](#deployments)
+      * [Create Deployment and scale it](#create-deployment-and-scale-it)
    * [Namespace](#namespace)
       * [get all namespaces](#get-all-namespaces)
       * [change namespace](#change-namespace)
@@ -21,7 +23,7 @@
       * [remove taint of node](#remove-taint-of-node)
       * [tolerant specification](#tolerant-specification)
 
-<!-- Added by: morelly_t1, at: Sun 01 Nov 2020 06:31:10 PM CET -->
+<!-- Added by: morelly_t1, at: Tue 03 Nov 2020 03:15:11 PM CET -->
 
 <!--te-->
 
@@ -49,6 +51,11 @@ kubectl run redis --image=redis123 --dry-run=client -o yaml > pod.yml
 # Pod
 >the smallest deployable units of computing that you can create and manage in Kubernetes 
 
+## Default Pod ressources
+* 1 vCPU ( if Pod consumes more the pod will be throttled)
+* 512 MB Memory (if Pod consumes more, the pod will be terminated)
+
+
 ## create and expose a pod
 ```
 kubectl run httpd --image=httpd:alpine --port 80 --expose
@@ -65,6 +72,13 @@ kubectl replace -f replica-definition.yml
 ---
 # Deployments
 > A Deployment provides declarative updates for Pods and ReplicaSets
+
+## Create Deployment and scale it
+```
+kubectl create deployment blue --image=nginx 
+kubectl scale deployment blue --replicas=6
+```
+
 ---
 # Namespace
 > Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.

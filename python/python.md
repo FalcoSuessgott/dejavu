@@ -1,0 +1,19 @@
+<!--ts-->
+   * [pip module to rpm](#pip-module-to-rpm)
+   * [short if else](#short-if-else)
+
+<!-- Added by: morelly_t1, at: Tue 03 Nov 2020 03:15:11 PM CET -->
+
+<!--te-->
+
+# pip module to rpm
+```
+curl $PIP.tar.gz 
+cd $PIP
+python3 setup.py bdist_rpm
+```
+
+# short if else
+```
+x = "www-data" if distro == "debian" or distro == "ubuntu" else "apache"
+```
