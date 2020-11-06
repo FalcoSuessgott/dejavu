@@ -4,6 +4,7 @@
    * [wait for SSH Connection](ansible/ansible.md#wait-for-ssh-connection)
 
    * [bash into container](docker/docker.md#bash-into-container)
+   * [build -&gt; tag -&gt; push image](docker/docker.md#build---tag---push-image)
 
    * [General](kubernetes/kubernetes.md#general)
       * [default manifest yml](kubernetes/kubernetes.md#default-manifest-yml)
@@ -33,5 +34,6 @@
    * [short if else](python/python.md#short-if-else)
 
    * [display tab and whitespaces](vim/vim.md#display-tab-and-whitespaces)
+   * [delete everything after cursor](vim/vim.md#delete-everything-after-cursor)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)

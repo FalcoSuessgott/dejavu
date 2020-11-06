@@ -23,7 +23,7 @@
       * [remove taint of node](#remove-taint-of-node)
       * [tolerant specification](#tolerant-specification)
 
-<!-- Added by: morelly_t1, at: Tue 03 Nov 2020 03:15:11 PM CET -->
+<!-- Added by: morelly_t1, at: Thu 05 Nov 2020 01:57:16 PM CET -->
 
 <!--te-->
 
