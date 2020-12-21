@@ -1,19 +1,21 @@
+# Vim
 <!--ts-->
-   * [display tab and whitespaces](#display-tab-and-whitespaces)
-   * [delete everything after cursor](#delete-everything-after-cursor)
+   * [Vim](#vim)
+      * [display tab and whitespaces](#display-tab-and-whitespaces)
+      * [delete everything after cursor](#delete-everything-after-cursor)
 
-<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:23 PM CET -->
+<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:49:27 PM CET -->
 
 <!--te-->
 
-# display tab and whitespaces
-```
+## display tab and whitespaces
+```vim
 set list
 set listchars=tab:>-
 ```
 
-# delete everything after cursor
-```
+## delete everything after cursor
+```vim
 :$LINE_NUMBER
 :dG # delete Global
 ```
