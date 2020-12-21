@@ -1,15 +1,26 @@
 <!--ts-->
+   * [kubectl](#kubectl)
+      * [apply changes](#apply-changes)
+      * [create objects](#create-objects)
+      * [get multiple objects](#get-multiple-objects)
    * [General](#general)
       * [default manifest yml](#default-manifest-yml)
       * [get possible defintion options](#get-possible-defintion-options)
+      * [version differences](#version-differences)
       * [auto generate a manifest](#auto-generate-a-manifest)
+   * [kubectl via ssh jump host](#kubectl-via-ssh-jump-host)
    * [Pod](#pod)
       * [Default Pod ressources](#default-pod-ressources)
       * [create and expose a pod](#create-and-expose-a-pod)
+      * [Static Pod](#static-pod)
    * [ReplicaSet](#replicaset)
       * [update replicaset](#update-replicaset)
    * [Deployments](#deployments)
       * [Create Deployment and scale it](#create-deployment-and-scale-it)
+   * [Maintenance](#maintenance)
+      * [drain a node](#drain-a-node)
+      * [mark a node as unscheduable](#mark-a-node-as-unscheduable)
+   * [DaemonSets](#daemonsets)
    * [Namespace](#namespace)
       * [get all namespaces](#get-all-namespaces)
       * [change namespace](#change-namespace)
@@ -22,10 +33,32 @@
       * [add taint to node](#add-taint-to-node)
       * [remove taint of node](#remove-taint-of-node)
       * [tolerant specification](#tolerant-specification)
+   * [Upgrade](#upgrade)
+      * [prepare node for upgrades](#prepare-node-for-upgrades)
+      * [using kubeadm](#using-kubeadm)
 
-<!-- Added by: morelly_t1, at: Fri 06 Nov 2020 01:29:51 PM CET -->
+<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:04 PM CET -->
 
 <!--te-->
+# kubectl
+## apply changes
+```
+kubectl apply -f file.yml
+```
+
+## create objects
+```
+kubectl create -f file.yml
+```
+
+## get multiple objects
+```
+kubectl get pods,svc,pvc,pv
+```
+
+---
+
+
 
 # General
 ## default manifest yml
@@ -38,16 +71,33 @@ spec:
 
 ```
 
+
 ## get possible defintion options
 ```
 kubectl explain pod --recursivce | grep -A5 tolerations 
 ```
+
+## version differences
+kube-api server == X
+controller manager >= X-1
+kube-scheduler >= X-1
+kubelet >= X-2
+kube-proxy >= X-2
+kubectly == x+1 || x-1
+
 
 ## auto generate a manifest 
 ```
 kubectl run redis --image=redis123 --dry-run=client -o yaml > pod.yml
 ```
 ---
+
+# kubectl via ssh jump host
+* cp .kube/config to local machine
+* change server to localhost:6443
+* add insecure-skip-tls-verify: true in cluster 
+* remove cert
+* ssh 10.25.112.158 -i priv_key -L 6443:localhost:6443
 # Pod
 >the smallest deployable units of computing that you can create and manage in Kubernetes 
 
@@ -60,6 +110,9 @@ kubectl run redis --image=redis123 --dry-run=client -o yaml > pod.yml
 ```
 kubectl run httpd --image=httpd:alpine --port 80 --expose
 ```
+
+## Static Pod
+> Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them.
 ---
 
 # ReplicaSet
@@ -78,6 +131,21 @@ kubectl replace -f replica-definition.yml
 kubectl create deployment blue --image=nginx 
 kubectl scale deployment blue --replicas=6
 ```
+
+---
+# Maintenance
+## drain a node
+```
+kubectl drain NODE
+```
+
+## mark a node as unscheduable
+```
+kubectl cordon node # remove with uncordon
+```
+
+# DaemonSets
+> ensures that all (or some) Nodes run a copy of a Pod
 
 ---
 # Namespace
@@ -105,6 +173,8 @@ kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-ru
 * LoadBalancer -> On cloud providers which support external load balancers, setting the type field to LoadBalancer provisions a load balancer for your Service.
 * ClusterIP -> 
 ---
+
+
 # DNS 
 ## FQDN
 ```
@@ -135,3 +205,15 @@ tolerations:
 ``` 
 
 ---
+# Upgrade
+## prepare node for upgrades
+```
+kubectl drain node01
+kubectl cordono node01
+```
+
+## using kubeadm
+```
+kubeadm upgrade plan
+kubeadm upgrade apply v1.18.0
+```
