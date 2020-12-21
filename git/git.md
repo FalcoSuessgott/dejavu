@@ -2,7 +2,7 @@
    * [delete local and remote tag](#delete-local-and-remote-tag)
       * [delete all local and remote tags](#delete-all-local-and-remote-tags)
 
-<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:04 PM CET -->
+<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:22 PM CET -->
 
 <!--te-->
 ---

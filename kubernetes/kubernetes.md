@@ -37,7 +37,7 @@
       * [prepare node for upgrades](#prepare-node-for-upgrades)
       * [using kubeadm](#using-kubeadm)
 
-<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:04 PM CET -->
+<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 02:26:23 PM CET -->
 
 <!--te-->
 # kubectl
