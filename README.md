@@ -1,8 +1,9 @@
-# Wiki
-## Table of Contents
 
    * [Ansible](ansible/ansible.md#ansible)
       * [wait for SSH Connection](ansible/ansible.md#wait-for-ssh-connection)
+
+   * [Bash](bash/bash.md#bash)
+      * [remove empty lines](bash/bash.md#remove-empty-lines)
 
    * [Docker](docker/docker.md#docker)
       * [bash into container](docker/docker.md#bash-into-container)

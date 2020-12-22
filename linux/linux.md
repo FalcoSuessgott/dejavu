@@ -4,7 +4,7 @@
       * [RHEL](#rhel)
          * [Change Timezone](#change-timezone)
 
-<!-- Added by: morelly_t1, at: Mon 21 Dec 2020 03:30:22 PM CET -->
+<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:43:29 PM CET -->
 
 <!--te-->
 
