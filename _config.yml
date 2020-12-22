@@ -1,1 +1,9 @@
 theme: jekyll-theme-slate
+title: FalcoSuessgotts Wiki
+description: collection of snippets, commands and useful tips
+show_downloads: True
+navigation:
+  - title: Home
+    url: /
+  - title: Ansible
+    url: ansible
