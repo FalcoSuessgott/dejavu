@@ -4,7 +4,7 @@
       * [display tab and whitespaces](#display-tab-and-whitespaces)
       * [delete everything after cursor](#delete-everything-after-cursor)
 
-<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:43:29 PM CET -->
+<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:45:52 PM CET -->
 
 <!--te-->
 

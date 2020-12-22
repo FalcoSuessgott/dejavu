@@ -4,7 +4,7 @@
       * [bash into container](#bash-into-container)
       * [build -&gt; tag -&gt; push image](#build---tag---push-image)
 
-<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:43:27 PM CET -->
+<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:45:50 PM CET -->
 
 <!--te-->
 

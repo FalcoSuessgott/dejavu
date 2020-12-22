@@ -4,6 +4,7 @@
 
    * [Bash](bash/bash.md#bash)
       * [remove empty lines](bash/bash.md#remove-empty-lines)
+         * [insert/replace directly in file](bash/bash.md#insertreplace-directly-in-file)
 
    * [Docker](docker/docker.md#docker)
       * [bash into container](docker/docker.md#bash-into-container)
