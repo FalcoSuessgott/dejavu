@@ -6,4 +6,4 @@ navigation:
   - title: Home
     url: /
   - title: Ansible
-    url: ansible
+    url: ansible/ansible.md
