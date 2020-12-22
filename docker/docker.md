@@ -16,6 +16,6 @@ docker run --name rpm_test --rm -it centos bash
 ## build -> tag -> push image
 ```bash
 docker build -t go-tito .
-docker tag go-tito:latest registry.labwi.sva.de/tom.morelly/go-tito:latest
-docker push registry.labwi.sva.de/tom.morelly/go-tito:latest
+docker tag go-tito:latest $REGISTRY/$USER/go-tito:latest
+docker push $REGISTRY/$USER/go-tito:latest
 ```
