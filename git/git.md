@@ -4,7 +4,7 @@
       * [delete local and remote tag](#delete-local-and-remote-tag)
       * [delete all local and remote tags](#delete-all-local-and-remote-tags)
 
-<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 02:45:50 PM CET -->
+<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 03:04:01 PM CET -->
 
 <!--te-->
 ---

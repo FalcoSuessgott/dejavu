@@ -2,8 +2,6 @@
 
 [ $# -eq 0 ] && echo "no commit message provided." &&  exit 1
 echo "building main ToC"
-gh-md-toc **/*.md > README.md 
-sed '/^[[:space:]]*$/d' README.md
 
 for file in **/*.md;do 
     gh-md-toc --insert "$file" 1>/dev/null && echo "build ToC for $file"

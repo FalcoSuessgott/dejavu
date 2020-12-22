@@ -1,74 +1,7 @@
+# dejavu
 
-   * [Ansible](ansible/ansible.md#ansible)
-      * [wait for SSH Connection](ansible/ansible.md#wait-for-ssh-connection)
 
-   * [Bash](bash/bash.md#bash)
-      * [remove empty lines](bash/bash.md#remove-empty-lines)
-         * [insert/replace directly in file](bash/bash.md#insertreplace-directly-in-file)
-
-   * [Docker](docker/docker.md#docker)
-      * [bash into container](docker/docker.md#bash-into-container)
-      * [build -&gt; tag -&gt; push image](docker/docker.md#build---tag---push-image)
-
-   * [Git](git/git.md#git)
-      * [delete local and remote tag](git/git.md#delete-local-and-remote-tag)
-      * [delete all local and remote tags](git/git.md#delete-all-local-and-remote-tags)
-
-   * [Go](go/go.md#go)
-      * [example](go/go.md#example)
-
-   * [Kubernetes](kubernetes/kubernetes.md#kubernetes)
-      * [kubectl](kubernetes/kubernetes.md#kubectl)
-         * [apply changes](kubernetes/kubernetes.md#apply-changes)
-         * [create objects](kubernetes/kubernetes.md#create-objects)
-         * [get multiple objects](kubernetes/kubernetes.md#get-multiple-objects)
-      * [General](kubernetes/kubernetes.md#general)
-         * [default manifest yml](kubernetes/kubernetes.md#default-manifest-yml)
-         * [get possible defintion options](kubernetes/kubernetes.md#get-possible-defintion-options)
-         * [version differences](kubernetes/kubernetes.md#version-differences)
-         * [auto generate a manifest](kubernetes/kubernetes.md#auto-generate-a-manifest)
-      * [kubectl via ssh jump host](kubernetes/kubernetes.md#kubectl-via-ssh-jump-host)
-      * [Pods](kubernetes/kubernetes.md#pods)
-         * [Default Pod ressources](kubernetes/kubernetes.md#default-pod-ressources)
-         * [create and expose a pod](kubernetes/kubernetes.md#create-and-expose-a-pod)
-         * [Static Pod](kubernetes/kubernetes.md#static-pod)
-      * [ReplicaSet](kubernetes/kubernetes.md#replicaset)
-         * [update replicaset](kubernetes/kubernetes.md#update-replicaset)
-      * [Deployments](kubernetes/kubernetes.md#deployments)
-         * [Create Deployment and scale it](kubernetes/kubernetes.md#create-deployment-and-scale-it)
-      * [Maintenance](kubernetes/kubernetes.md#maintenance)
-         * [drain a node](kubernetes/kubernetes.md#drain-a-node)
-         * [mark a node as unscheduable](kubernetes/kubernetes.md#mark-a-node-as-unscheduable)
-      * [DaemonSets](kubernetes/kubernetes.md#daemonsets)
-      * [Namespace](kubernetes/kubernetes.md#namespace)
-         * [get all namespaces](kubernetes/kubernetes.md#get-all-namespaces)
-         * [change namespace](kubernetes/kubernetes.md#change-namespace)
-      * [Service](kubernetes/kubernetes.md#service)
-         * [expose a pod on a specific port](kubernetes/kubernetes.md#expose-a-pod-on-a-specific-port)
-         * [Types](kubernetes/kubernetes.md#types)
-      * [DNS](kubernetes/kubernetes.md#dns)
-         * [FQDN](kubernetes/kubernetes.md#fqdn)
-      * [Taint &amp; Tolerations](kubernetes/kubernetes.md#taint--tolerations)
-         * [add taint to node](kubernetes/kubernetes.md#add-taint-to-node)
-         * [remove taint of node](kubernetes/kubernetes.md#remove-taint-of-node)
-         * [tolerant specification](kubernetes/kubernetes.md#tolerant-specification)
-      * [Upgrade](kubernetes/kubernetes.md#upgrade)
-         * [prepare node for upgrades](kubernetes/kubernetes.md#prepare-node-for-upgrades)
-         * [using kubeadm](kubernetes/kubernetes.md#using-kubeadm)
-
-   * [Linux](linux/linux.md#linux)
-      * [RHEL](linux/linux.md#rhel)
-         * [Change Timezone](linux/linux.md#change-timezone)
-
-   * [Python](python/python.md#python)
-      * [pip module to rpm](python/python.md#pip-module-to-rpm)
-      * [short if else](python/python.md#short-if-else)
-
-   * [RPM](rpm/rpm.md#rpm)
-      * [see if rpm files has been changed](rpm/rpm.md#see-if-rpm-files-has-been-changed)
-
-   * [Vim](vim/vim.md#vim)
-      * [display tab and whitespaces](vim/vim.md#display-tab-and-whitespaces)
-      * [delete everything after cursor](vim/vim.md#delete-everything-after-cursor)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+## generate table of contents
+```bash
+bash gen-toc.sh $COMMIT_MSG
+```
