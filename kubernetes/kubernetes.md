@@ -41,7 +41,7 @@
          * [prepare node for upgrades](#prepare-node-for-upgrades)
          * [using kubeadm](#using-kubeadm)
 
-<!-- Added by: morelly_t1, at: Wed 23 Dec 2020 02:16:15 PM CET -->
+<!-- Added by: morelly_t1, at: Wed 23 Dec 2020 02:17:43 PM CET -->
 
 <!--te-->
 ## kubectl
@@ -64,6 +64,7 @@ kubectl get pods,svc,pvc,pv
 ## General
 ### Required Ports control plane
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#control-plane-node-s
+
 | Protocol | Direction | Port Range | Purpose                 | Used by              |
 |----------|-----------|------------|-------------------------|----------------------|
 | TCP      | Inbound   | 6443       | Kubernetes API server   | All                  |
@@ -73,6 +74,7 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 | TCP      | Inbound   | 10252      | kube-controller-manager | Self                 |
 
 ### Worker Nodes
+
 | Protocol | Direction | Port Range  | Purpose           | Used by             |
 |----------|-----------|-------------|-------------------|---------------------|
 | TCP      | Inbound   | 10250       | Kubelet API       | Self, Control plane |
