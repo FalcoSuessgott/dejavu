@@ -4,7 +4,7 @@
 
 echo "Updating entries"
 entries=$(grep -IiR --exclude-dir='.git' "^#" | wc -l)
-sed -i"s/Entries: .*/Entries: $entries/" README.md
+sed -i "s/Entries: .*/Entries: $entries/" README.md
 
 echo "building main ToC"
 
