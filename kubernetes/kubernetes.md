@@ -6,6 +6,8 @@
          * [create objects](#create-objects)
          * [get multiple objects](#get-multiple-objects)
       * [General](#general)
+         * [Required Ports control plane](#required-ports-control-plane)
+         * [Worker Nodes](#worker-nodes)
          * [default manifest yml](#default-manifest-yml)
          * [get possible defintion options](#get-possible-defintion-options)
          * [version differences](#version-differences)
@@ -39,7 +41,7 @@
          * [prepare node for upgrades](#prepare-node-for-upgrades)
          * [using kubeadm](#using-kubeadm)
 
-<!-- Added by: morelly_t1, at: Tue 22 Dec 2020 03:04:02 PM CET -->
+<!-- Added by: morelly_t1, at: Wed 23 Dec 2020 02:15:39 PM CET -->
 
 <!--te-->
 ## kubectl
@@ -60,6 +62,22 @@ kubectl get pods,svc,pvc,pv
 
 ---
 ## General
+### Required Ports control plane
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#control-plane-node-s
+| Protocol | Direction | Port Range | Purpose                 | Used by              |
+|----------|-----------|------------|-------------------------|----------------------|
+| TCP      | Inbound   | 6443       | Kubernetes API server   | All                  |
+| TCP      | Inbound   | 2379-2380  | etcd server client API  | kube-apiserver, etcd |
+| TCP      | Inbound   | 10250      | Kubelet API             | Self, Control plane  |
+| TCP      | Inbound   | 10251      | kube-scheduler          | Self                 |
+| TCP      | Inbound   | 10252      | kube-controller-manager | Self                 |
+
+### Worker Nodes
+| Protocol | Direction | Port Range  | Purpose           | Used by             |
+|----------|-----------|-------------|-------------------|---------------------|
+| TCP      | Inbound   | 10250       | Kubelet API       | Self, Control plane |
+| TCP      | Inbound   | 30000-32767 | NodePort Services | All                 |
+
 ### default manifest yml
 ```bash
 version: v1
