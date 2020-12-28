@@ -60,6 +60,11 @@ kubectl create -f file.yml
 kubectl get pods,svc,pvc,pv
 ```
 
+### delete all pods in certain namespace
+```bash
+for pod in $(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' -n flux); do kubectl delete pod $pod -n flux; done
+```
+ooa
 ---
 ## General
 ### Required Ports control plane
@@ -79,6 +84,10 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 |----------|-----------|-------------|-------------------|---------------------|
 | TCP      | Inbound   | 10250       | Kubelet API       | Self, Control plane |
 | TCP      | Inbound   | 30000-32767 | NodePort Services | All                 |
+
+### etcd ports
+* TCP/2379 for client requests
+* TCP/2380 for peer communication
 
 ### default manifest yml
 ```bash
@@ -194,17 +203,53 @@ kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-ru
 * ClusterIP -> 
 ---
 
-## DNS 
-### FQDN
-```bash
-db-1.dev.svc.cluster.local
-SERVICE.NAMESPACE.svc.cluster.local
+## DNS
+### CoreDNS
+* since v1.12 default dns server is CoreDNS
+* deployed twice (HA) as pods in `kube-system` namespaces from a ReplicaSet via a Deployment
+* service `kube-dns` automatically created at deployment
+* CoreDNS main default config file:
+
+`/etc/coredns/Corefile`
+```yaml
+    .:53 {
+        errors
+        health
+        ready
+        kubernetes <CLUSTER_DOMAIN> <REVERSE_ZONES...> {
+          pods insecure
+          fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
 ```
+### FQDN
+
+| Hostname    | Namespace | Type | Suffix        | combined                           |
+|-------------|-----------|------|---------------|------------------------------------|
+| web-service | apps      | svc  | cluster.local | web-service.apps.svc.cluster.local |
+| 10.244.2.5  | apps      | pod  | cluster.local | 10-244-2-5.apps.pod.cluster.local  |
+
 ---
 
+## etcd
+* only on master out of all masters is the `active` (leader) master.
+* the passive master redirect the write requests to the leader
+* they check periodically the connection to each other
+* the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull
+* if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine
+
+---
+
+
 ## Taint & Tolerations
-> Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints
-> available effects: NoSchedule, PreferNoSchedule, NoExecute
+* Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints
+* available effects: NoSchedule, PreferNoSchedule, NoExecute
 
 ### add taint to node
 ```bash
