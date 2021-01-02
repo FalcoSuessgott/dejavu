@@ -18,6 +18,8 @@ navigation:
     url: linux/linux
   - title: Python
     url: python/python
+  - title: Podman
+    url: podman/podman
   - title: RPM
     url: rpm/rpm
   - title: VIM

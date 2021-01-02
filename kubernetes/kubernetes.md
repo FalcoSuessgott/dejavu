@@ -5,9 +5,12 @@
          * [apply changes](#apply-changes)
          * [create objects](#create-objects)
          * [get multiple objects](#get-multiple-objects)
+         * [delete all pods in certain namespace](#delete-all-pods-in-certain-namespace)
+      * [ooa](#ooa)
       * [General](#general)
          * [Required Ports control plane](#required-ports-control-plane)
          * [Worker Nodes](#worker-nodes)
+         * [etcd ports](#etcd-ports)
          * [default manifest yml](#default-manifest-yml)
          * [get possible defintion options](#get-possible-defintion-options)
          * [version differences](#version-differences)
@@ -32,7 +35,9 @@
          * [expose a pod on a specific port](#expose-a-pod-on-a-specific-port)
          * [Types](#types)
       * [DNS](#dns)
+         * [CoreDNS](#coredns)
          * [FQDN](#fqdn)
+      * [etcd](#etcd)
       * [Taint &amp; Tolerations](#taint--tolerations)
          * [add taint to node](#add-taint-to-node)
          * [remove taint of node](#remove-taint-of-node)
@@ -41,7 +46,7 @@
          * [prepare node for upgrades](#prepare-node-for-upgrades)
          * [using kubeadm](#using-kubeadm)
 
-<!-- Added by: morelly_t1, at: Wed 23 Dec 2020 02:17:43 PM CET -->
+<!-- Added by: morelly_t1, at: Sat 02 Jan 2021 07:53:57 PM CET -->
 
 <!--te-->
 ## kubectl
