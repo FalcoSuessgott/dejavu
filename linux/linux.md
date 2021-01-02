@@ -6,8 +6,9 @@
          * [/etc/nsswitch.conf](#etcnsswitchconf)
       * [RHEL](#rhel)
          * [Change Timezone](#change-timezone)
+         * [open port using firewalld](#open-port-using-firewalld)
 
-<!-- Added by: morelly_t1, at: Sat 02 Jan 2021 07:53:58 PM CET -->
+<!-- Added by: morelly_t1, at: Sat 02 Jan 2021 09:04:25 PM CET -->
 
 <!--te-->
 
@@ -36,4 +37,10 @@ hosts:    files dns myhostname
 ```bash
 timedatectl list-timezones
 timedatectl set-timezone Europa/Berlin
+```
+
+### open port using `firewalld`
+```bash
+sudo firewall-cmd --zone=public --permanent --add-port 6052/tcp
+sudo firewall-cmd --reload
 ```
