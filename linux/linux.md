@@ -7,8 +7,9 @@
       * [RHEL](#rhel)
          * [Change Timezone](#change-timezone)
          * [open port using firewalld](#open-port-using-firewalld)
+         * [list all version of rpm](#list-all-version-of-rpm)
 
-<!-- Added by: morelly_t1, at: Sat 02 Jan 2021 09:04:25 PM CET -->
+<!-- Added by: morelly_t1, at: Wed 06 Jan 2021 04:07:50 PM CET -->
 
 <!--te-->
 
@@ -43,4 +44,15 @@ timedatectl set-timezone Europa/Berlin
 ```bash
 sudo firewall-cmd --zone=public --permanent --add-port 6052/tcp
 sudo firewall-cmd --reload
+```
+
+### list all version of rpm
+```bash
+$> yum list cloud-init --showduplicates
+Installed Packages
+cloud-init.x86_64                            19.4-7.el7.centos.3                            @updates
+Available Packages
+cloud-init.x86_64                            19.4-7.el7.centos                              base
+cloud-init.x86_64                            19.4-7.el7.centos.2                            updates
+cloud-init.x86_64                            19.4-7.el7.centos.3                            update
 ```
