@@ -1,23 +1,38 @@
 # Linux
 <!--ts-->
    * [Linux](#linux)
+      * [General](#general)
+         * [get process listening on port](#get-process-listening-on-port)
       * [DNS](#dns)
          * [Ovierview DNS Records](#ovierview-dns-records)
+         * [get public ip](#get-public-ip)
          * [/etc/nsswitch.conf](#etcnsswitchconf)
       * [RHEL](#rhel)
          * [Change Timezone](#change-timezone)
          * [open port using firewalld](#open-port-using-firewalld)
          * [list all version of rpm](#list-all-version-of-rpm)
 
-<!-- Added by: morelly_t1, at: Wed 06 Jan 2021 04:07:50 PM CET -->
+<!-- Added by: morelly_t1, at: Mon 11 Jan 2021 10:19:24 AM CET -->
 
 <!--te-->
-
+## General
+### get process listening on port 
+```bash
+lsof -i :8080
+COMMAND    PID       USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+java    931220 morelly_t1  200u  IPv6 3669215      0t0  TCP *:http-alt (LISTEN)
+```
 ## DNS
 ### Ovierview DNS Records 
 * A-Record: Domain Name -> IPv4
 * AAAA-Record: Domain-Name -> IPv6
 * CNAME: Domain-Name -> Domain Name (Alias)
+
+### get public ip
+```bash
+$> curl ifconfig.me
+109.90.5.242
+```
 
 ### `/etc/nsswitch.conf`
 controls the order and which services to use for name resolution
