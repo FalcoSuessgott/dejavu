@@ -24,8 +24,3 @@ navigation:
     url: rpm/rpm
   - title: VIM
     url: vim/vim
-tipue_search:
-  include:
-    pages: true
-  exclude:
-    files: [search.html]
