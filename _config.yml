@@ -14,6 +14,8 @@ navigation:
     url: go/go
   - title: Kubernetes
     url: kubernetes/kubernetes
+  - title: Git
+    url: git/git
   - title: Linux
     url: linux/linux
   - title: Python

@@ -2,7 +2,7 @@
 
 ## Number of entries
 
-Entries: 101
+Entries: 87
 
 ## generate table of contents
 ```bash

@@ -1,9 +1,11 @@
 # Go
 <!--ts-->
    * [Go](#go)
-      * [example](#example)
+   * [Slice/Arrays](#slicearrays)
+      * [Sort Slice of struct](#sort-slice-of-struct)
+      * [Sort by time](#sort-by-time)
 
-<!-- Added by: morelly_t1, at: Mon 11 Jan 2021 10:19:23 AM CET -->
+<!-- Added by: morelly_t1, at: Thu 14 Jan 2021 03:05:12 PM CET -->
 
 <!--te-->
 # Slice/Arrays

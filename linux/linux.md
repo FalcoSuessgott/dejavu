@@ -12,7 +12,7 @@
          * [open port using firewalld](#open-port-using-firewalld)
          * [list all version of rpm](#list-all-version-of-rpm)
 
-<!-- Added by: morelly_t1, at: Mon 11 Jan 2021 10:19:24 AM CET -->
+<!-- Added by: morelly_t1, at: Thu 14 Jan 2021 03:05:14 PM CET -->
 
 <!--te-->
 ## General
