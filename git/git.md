@@ -5,7 +5,7 @@
       * [delete all local and remote tags](#delete-all-local-and-remote-tags)
       * [reset to commit](#reset-to-commit)
 
-<!-- Added by: morelly_t1, at: Thu 14 Jan 2021 03:05:11 PM CET -->
+<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:26 PM CET -->
 
 <!--te-->
 ---
