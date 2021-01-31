@@ -1,4 +1,4 @@
-# baseURL = "https://falcosuessgott.github.io/dejavu/"
+baseURL = "/"
 
 publishDir = "docs"
 languageCode = "en-us"

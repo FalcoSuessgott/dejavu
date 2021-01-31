@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Dejavu</title>
-    <link>falcosuessgott.github.io/dejavu/linux/</link>
+    <link>/linux/</link>
     <description>Recent content in Linux on Dejavu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="falcosuessgott.github.io/dejavu/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General</title>
-      <link>falcosuessgott.github.io/dejavu/linux/linux/</link>
+      <link>/linux/linux/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>falcosuessgott.github.io/dejavu/linux/linux/</guid>
+      <guid>/linux/linux/</guid>
       <description>Linux   Linux  General  get process listening on port   DNS  Ovierview DNS Records get public ip /etc/nsswitch.conf   RHEL  Change Timezone open port using firewalld list all version of rpm       General get process listening on port lsof -i :8080 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME java 931220 morelly_t1 200u IPv6 3669215 0t0 TCP *:http-alt (LISTEN) DNS Ovierview DNS Records  A-Record: Domain Name -&amp;gt; IPv4 AAAA-Record: Domain-Name -&amp;gt; IPv6 CNAME: Domain-Name -&amp;gt; Domain Name (Alias)  get public ip $&amp;gt; curl ifconfig.</description>
     </item>
     
