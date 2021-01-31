@@ -1,5 +1,4 @@
 baseURL = "https://falcosuessgott.github.io/dejavu/"
-
 publishDir = "docs"
 languageCode = "en-us"
 DefaultContentLanguage = "en"
