@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Dejavu</title>
+    <link>falcosuessgott.github.io/dejavu/git/</link>
+    <description>Recent content in Git on Dejavu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="falcosuessgott.github.io/dejavu/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>falcosuessgott.github.io/dejavu/git/git/</link>
+      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      
+      <guid>falcosuessgott.github.io/dejavu/git/git/</guid>
+      <description>  Git  delete local and remote tag delete all local and remote tags reset to commit      delete local and remote tag git tag -d v1.1.0 git push --delete origin v1.1.0 delete all local and remote tags for tag in $(git tag -l); do git tag -d $tag &amp;amp;&amp;amp; git push --delete origin $tag; done reset to commit git reset --hard $tagname </description>
+    </item>
+    
+  </channel>
+</rss>

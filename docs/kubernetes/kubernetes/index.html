@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>General - Dejavu</title>
+<meta name="description" content="Personal notes and snippets I keep forgetting">
+<meta name="generator" content="Hugo 0.81.0-DEV" />
+<link href="falcosuessgott.github.io/dejavu/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="falcosuessgott.github.io/dejavu/kubernetes/kubernetes/">
+<link rel="stylesheet" href="falcosuessgott.github.io/dejavu/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="falcosuessgott.github.io/dejavu/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="falcosuessgott.github.io/dejavu/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="General" />
+<meta property="og:description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="falcosuessgott.github.io/dejavu/kubernetes/kubernetes/" />
+<meta property="og:image" content="falcosuessgott.github.io/dejavu/images/og-image.png"/>
+<meta property="article:published_time" content="2017-10-17T15:26:15+00:00" />
+<meta property="article:modified_time" content="2017-10-17T15:26:15+00:00" /><meta property="og:site_name" content="Dejavu" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="falcosuessgott.github.io/dejavu/images/og-image.png"/>
+
+<meta name="twitter:title" content="General"/>
+<meta name="twitter:description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file."/>
+<meta itemprop="name" content="General">
+<meta itemprop="description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file.">
+<meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
+<meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
+<meta itemprop="wordCount" content="827">
+<meta itemprop="image" content="falcosuessgott.github.io/dejavu/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" />
+</head>
+<body><div class="container"><header>
+<h1>Dejavu</h1><a href="https://github.com/FalcoSuessgott/dejavu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Personal notes and snippets I keep forgetting</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="falcosuessgott.github.io/dejavu/">Wiki</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>General</h1>
+<!--ts-->
+<ul>
+<li><a href="#kubernetes">Kubernetes</a>
+<ul>
+<li><a href="#kubectl">kubectl</a>
+<ul>
+<li><a href="#apply-changes">apply changes</a></li>
+<li><a href="#create-objects">create objects</a></li>
+<li><a href="#get-multiple-objects">get multiple objects</a></li>
+<li><a href="#delete-all-pods-in-certain-namespace">delete all pods in certain namespace</a></li>
+</ul>
+</li>
+<li><a href="#ooa">ooa</a></li>
+<li><a href="#general">General</a>
+<ul>
+<li><a href="#required-ports-control-plane">Required Ports control plane</a></li>
+<li><a href="#worker-nodes">Worker Nodes</a></li>
+<li><a href="#etcd-ports">etcd ports</a></li>
+<li><a href="#default-manifest-yml">default manifest yml</a></li>
+<li><a href="#get-possible-defintion-options">get possible defintion options</a></li>
+<li><a href="#version-differences">version differences</a></li>
+<li><a href="#auto-generate-a-manifest">auto generate a manifest</a></li>
+</ul>
+</li>
+<li><a href="#kubectl-via-ssh-jump-host">kubectl via ssh jump host</a></li>
+<li><a href="#pods">Pods</a>
+<ul>
+<li><a href="#default-pod-ressources">Default Pod ressources</a></li>
+<li><a href="#create-and-expose-a-pod">create and expose a pod</a></li>
+<li><a href="#static-pod">Static Pod</a></li>
+</ul>
+</li>
+<li><a href="#replicaset">ReplicaSet</a>
+<ul>
+<li><a href="#update-replicaset">update replicaset</a></li>
+</ul>
+</li>
+<li><a href="#deployments">Deployments</a>
+<ul>
+<li><a href="#create-deployment-and-scale-it">Create Deployment and scale it</a></li>
+</ul>
+</li>
+<li><a href="#maintenance">Maintenance</a>
+<ul>
+<li><a href="#drain-a-node">drain a node</a></li>
+<li><a href="#mark-a-node-as-unscheduable">mark a node as unscheduable</a></li>
+</ul>
+</li>
+<li><a href="#daemonsets">DaemonSets</a></li>
+<li><a href="#namespace">Namespace</a>
+<ul>
+<li><a href="#get-all-namespaces">get all namespaces</a></li>
+<li><a href="#change-namespace">change namespace</a></li>
+</ul>
+</li>
+<li><a href="#service">Service</a>
+<ul>
+<li><a href="#expose-a-pod-on-a-specific-port">expose a pod on a specific port</a></li>
+<li><a href="#types">Types</a></li>
+</ul>
+</li>
+<li><a href="#dns">DNS</a>
+<ul>
+<li><a href="#coredns">CoreDNS</a></li>
+<li><a href="#fqdn">FQDN</a></li>
+</ul>
+</li>
+<li><a href="#etcd">etcd</a></li>
+<li><a href="#taint--tolerations">Taint &amp; Tolerations</a>
+<ul>
+<li><a href="#add-taint-to-node">add taint to node</a></li>
+<li><a href="#remove-taint-of-node">remove taint of node</a></li>
+<li><a href="#tolerant-specification">tolerant specification</a></li>
+</ul>
+</li>
+<li><a href="#upgrade">Upgrade</a>
+<ul>
+<li><a href="#prepare-node-for-upgrades">prepare node for upgrades</a></li>
+<li><a href="#using-kubeadm">using kubeadm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:27 PM CET -->
+<!--te-->
+<h2 id="kubectl">kubectl</h2>
+<h3 id="apply-changes">apply changes</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f file.yml
+</code></pre></div><h3 id="create-objects">create objects</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create -f file.yml
+</code></pre></div><h3 id="get-multiple-objects">get multiple objects</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods,svc,pvc,pv
+</code></pre></div><h3 id="delete-all-pods-in-certain-namespace">delete all pods in certain namespace</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> pod in <span style="color:#66d9ef">$(</span>kubectl get pods --template <span style="color:#e6db74">&#39;{{range .items}}{{.metadata.name}}{{&#34;\n&#34;}}{{end}}&#39;</span> -n flux<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span> kubectl delete pod $pod -n flux; <span style="color:#66d9ef">done</span>
+</code></pre></div><h2 id="ooa">ooa</h2>
+<h2 id="general">General</h2>
+<h3 id="required-ports-control-plane">Required Ports control plane</h3>
+<p><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#control-plane-node-s">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#control-plane-node-s</a></p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Direction</th>
+<th>Port Range</th>
+<th>Purpose</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>6443</td>
+<td>Kubernetes API server</td>
+<td>All</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>2379-2380</td>
+<td>etcd server client API</td>
+<td>kube-apiserver, etcd</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>10250</td>
+<td>Kubelet API</td>
+<td>Self, Control plane</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>10251</td>
+<td>kube-scheduler</td>
+<td>Self</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>10252</td>
+<td>kube-controller-manager</td>
+<td>Self</td>
+</tr>
+</tbody>
+</table>
+<h3 id="worker-nodes">Worker Nodes</h3>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Direction</th>
+<th>Port Range</th>
+<th>Purpose</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>10250</td>
+<td>Kubelet API</td>
+<td>Self, Control plane</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Inbound</td>
+<td>30000-32767</td>
+<td>NodePort Services</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h3 id="etcd-ports">etcd ports</h3>
+<ul>
+<li>TCP/2379 for client requests</li>
+<li>TCP/2380 for peer communication</li>
+</ul>
+<h3 id="default-manifest-yml">default manifest yml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">version: v1
+kind: Pod
+metadata:
+
+spec:
+</code></pre></div><h3 id="get-possible-defintion-options">get possible defintion options</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl explain pod --recursivce | grep -A5 tolerations 
+</code></pre></div><h3 id="version-differences">version differences</h3>
+<p>kube-api server == X
+controller manager &gt;= X-1
+kube-scheduler &gt;= X-1
+kubelet &gt;= X-2
+kube-proxy &gt;= X-2
+kubectly == x+1 || x-1</p>
+<h3 id="auto-generate-a-manifest">auto generate a manifest</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl run redis --image<span style="color:#f92672">=</span>redis123 --dry-run<span style="color:#f92672">=</span>client -o yaml &gt; pod.yml
+</code></pre></div><hr>
+<h2 id="kubectl-via-ssh-jump-host">kubectl via ssh jump host</h2>
+<ul>
+<li>cp .kube/config to local machine</li>
+<li>change server to localhost:6443</li>
+<li>add insecure-skip-tls-verify: true in cluster</li>
+<li>remove cert</li>
+<li>ssh 10.25.112.158 -i priv_key -L 6443:localhost:6443</li>
+</ul>
+<h2 id="pods">Pods</h2>
+<blockquote>
+<p>the smallest deployable units of computing that you can create and manage in Kubernetes</p>
+</blockquote>
+<h3 id="default-pod-ressources">Default Pod ressources</h3>
+<ul>
+<li>1 vCPU ( if Pod consumes more the pod will be throttled)</li>
+<li>512 MB Memory (if Pod consumes more, the pod will be terminated)</li>
+</ul>
+<h3 id="create-and-expose-a-pod">create and expose a pod</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl run httpd --image<span style="color:#f92672">=</span>httpd:alpine --port <span style="color:#ae81ff">80</span> --expose
+</code></pre></div><h3 id="static-pod">Static Pod</h3>
+<blockquote>
+<p>Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them.</p>
+</blockquote>
+<hr>
+<h2 id="replicaset">ReplicaSet</h2>
+<blockquote>
+<p>A ReplicaSet&rsquo;s purpose is to maintain a stable set of replica Pods running at any given time</p>
+</blockquote>
+<h3 id="update-replicaset">update replicaset</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl replace -f replica-definition.yml
+</code></pre></div><hr>
+<h2 id="deployments">Deployments</h2>
+<blockquote>
+<p>A Deployment provides declarative updates for Pods and ReplicaSets</p>
+</blockquote>
+<h3 id="create-deployment-and-scale-it">Create Deployment and scale it</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create deployment blue --image<span style="color:#f92672">=</span>nginx 
+kubectl scale deployment blue --replicas<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>
+</code></pre></div><hr>
+<h2 id="maintenance">Maintenance</h2>
+<h3 id="drain-a-node">drain a node</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl drain NODE
+</code></pre></div><h3 id="mark-a-node-as-unscheduable">mark a node as unscheduable</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl cordon node <span style="color:#75715e"># remove with uncordon</span>
+</code></pre></div><h2 id="daemonsets">DaemonSets</h2>
+<blockquote>
+<p>ensures that all (or some) Nodes run a copy of a Pod</p>
+</blockquote>
+<hr>
+<h2 id="namespace">Namespace</h2>
+<blockquote>
+<p>Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.</p>
+</blockquote>
+<h3 id="get-all-namespaces">get all namespaces</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get namespace
+</code></pre></div><h3 id="change-namespace">change namespace</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl config set-context <span style="color:#66d9ef">$(</span>kubectl config current context<span style="color:#66d9ef">)</span> --namespace<span style="color:#f92672">=</span>prod
+</code></pre></div><hr>
+<h2 id="service">Service</h2>
+<blockquote>
+<p>to expose an application running on a set of Pods as a network service</p>
+</blockquote>
+<h3 id="expose-a-pod-on-a-specific-port">expose a pod on a specific port</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl expose pod nginx --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --name nginx-service --type<span style="color:#f92672">=</span>NodePort --dry-run<span style="color:#f92672">=</span>client -o yaml
+</code></pre></div><h3 id="types">Types</h3>
+<ul>
+<li>
+<p>NodePort -&gt; allocates a port from a range specified by &ndash;service-node-port-range</p>
+</li>
+<li>
+<p>LoadBalancer -&gt; On cloud providers which support external load balancers, setting the type field to LoadBalancer provisions a load balancer for your Service.</p>
+</li>
+<li>
+<p>ClusterIP -&gt;</p>
+</li>
+</ul>
+<hr>
+<h2 id="dns">DNS</h2>
+<h3 id="coredns">CoreDNS</h3>
+<ul>
+<li>since v1.12 default dns server is CoreDNS</li>
+<li>deployed twice (HA) as pods in <code>kube-system</code> namespaces from a ReplicaSet via a Deployment</li>
+<li>service <code>kube-dns</code> automatically created at deployment</li>
+<li>CoreDNS main default config file:</li>
+</ul>
+<p><code>/etc/coredns/Corefile</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    <span style="color:#ae81ff">.:53 {</span>
+        <span style="color:#ae81ff">errors</span>
+        <span style="color:#ae81ff">health</span>
+        <span style="color:#ae81ff">ready</span>
+        <span style="color:#ae81ff">kubernetes &lt;CLUSTER_DOMAIN&gt; &lt;REVERSE_ZONES...&gt; {</span>
+          <span style="color:#ae81ff">pods insecure</span>
+          <span style="color:#ae81ff">fallthrough in-addr.arpa ip6.arpa</span>
+        }
+        <span style="color:#ae81ff">prometheus :9153</span>
+        <span style="color:#ae81ff">forward . /etc/resolv.conf</span>
+        <span style="color:#ae81ff">cache 30</span>
+        <span style="color:#ae81ff">loop</span>
+        <span style="color:#ae81ff">reload</span>
+        <span style="color:#ae81ff">loadbalance</span>
+    }
+</code></pre></div><h3 id="fqdn">FQDN</h3>
+<table>
+<thead>
+<tr>
+<th>Hostname</th>
+<th>Namespace</th>
+<th>Type</th>
+<th>Suffix</th>
+<th>combined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>web-service</td>
+<td>apps</td>
+<td>svc</td>
+<td>cluster.local</td>
+<td>web-service.apps.svc.cluster.local</td>
+</tr>
+<tr>
+<td>10.244.2.5</td>
+<td>apps</td>
+<td>pod</td>
+<td>cluster.local</td>
+<td>10-244-2-5.apps.pod.cluster.local</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="etcd">etcd</h2>
+<ul>
+<li>only on master out of all masters is the <code>active</code> (leader) master.</li>
+<li>the passive master redirect the write requests to the leader</li>
+<li>they check periodically the connection to each other</li>
+<li>the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull</li>
+<li>if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine</li>
+</ul>
+<hr>
+<h2 id="taint--tolerations">Taint &amp; Tolerations</h2>
+<ul>
+<li>Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints</li>
+<li>available effects: NoSchedule, PreferNoSchedule, NoExecute</li>
+</ul>
+<h3 id="add-taint-to-node">add taint to node</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl taint nodes node1 key<span style="color:#f92672">=</span>value:NoSchedule
+</code></pre></div><h3 id="remove-taint-of-node">remove taint of node</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl taint nodes node1 key:NoSchedule-
+</code></pre></div><h3 id="tolerant-specification">tolerant specification</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tolerations:
+- key: <span style="color:#e6db74">&#34;key&#34;</span>
+  operator: <span style="color:#e6db74">&#34;Equal&#34;</span>
+  value: <span style="color:#e6db74">&#34;value&#34;</span>
+  effect: <span style="color:#e6db74">&#34;NoSchedule&#34;</span>
+</code></pre></div><hr>
+<h2 id="upgrade">Upgrade</h2>
+<h3 id="prepare-node-for-upgrades">prepare node for upgrades</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl drain node01
+kubectl cordono node01
+</code></pre></div><h3 id="using-kubeadm">using kubeadm</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubeadm upgrade plan
+kubeadm upgrade apply v1.18.0
+</code></pre></div><div class="edit-meta">
+Last updated on 17 Oct 2017
+
+
+<br>
+Published on 17 Oct 2017
+<br></div><nav class="pagination"><a class="nav nav-prev" href="falcosuessgott.github.io/dejavu/kubernetes/etcd/" title="etcd"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - etcd</a>
+<a class="nav nav-next" href="falcosuessgott.github.io/dejavu/kubernetes/kubectl/" title="kubectl">Next - kubectl <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="falcosuessgott.github.io/dejavu">Home</a></li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/ansible/">Ansible</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/ansible/ansible/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/bash/">Bash</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/bash/bash/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/container/">Container</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/container/docker/">Docker</a></li>
+<li class=""><a href="falcosuessgott.github.io/dejavu/container/podman/">Podman</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/git/">Git</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/git/git/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/go/">Go</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/go/go/">General</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/kubernetes/etcd/">etcd</a></li>
+<li class="active"><a href="falcosuessgott.github.io/dejavu/kubernetes/kubernetes/">General</a></li>
+<li class=""><a href="falcosuessgott.github.io/dejavu/kubernetes/kubectl/">kubectl</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/linux/">Linux</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/linux/linux/">General</a></li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/linux/rhel/">RHEL</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/linux/rhel/rhel/">General</a></li>
+<li class=""><a href="falcosuessgott.github.io/dejavu/linux/rhel/rpm/">RPM</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/python/">Python</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/python/python/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="falcosuessgott.github.io/dejavu/vim/">vim</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="falcosuessgott.github.io/dejavu/vim/vim/">General</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
