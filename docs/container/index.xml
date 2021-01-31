@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Container on Dejavu</title>
-    <link>dejavu/container/</link>
+    <link>https://falcosuessgott.github.io/dejavu/container/</link>
     <description>Recent content in Container on Dejavu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="dejavu/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://falcosuessgott.github.io/dejavu/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
-      <link>dejavu/container/docker/</link>
+      <link>https://falcosuessgott.github.io/dejavu/container/docker/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>dejavu/container/docker/</guid>
+      <guid>https://falcosuessgott.github.io/dejavu/container/docker/</guid>
       <description>  Docker  bash into container build -&amp;gt; tag -&amp;gt; push image     bash into container docker run --name rpm_test --rm -it centos bash build -&amp;gt; tag -&amp;gt; push image docker build -t go-tito . docker tag go-tito:latest $REGISTRY/$USER/go-tito:latest docker push $REGISTRY/$USER/go-tito:latest </description>
     </item>
     
     <item>
       <title>Podman</title>
-      <link>dejavu/container/podman/</link>
+      <link>https://falcosuessgott.github.io/dejavu/container/podman/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>dejavu/container/podman/</guid>
+      <guid>https://falcosuessgott.github.io/dejavu/container/podman/</guid>
       <description>  Podman  Generate Systemd File for Pod/Container      Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &amp;gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service </description>
     </item>
     

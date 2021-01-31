@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on Dejavu</title>
-    <link>dejavu/go/</link>
+    <link>https://falcosuessgott.github.io/dejavu/go/</link>
     <description>Recent content in Go on Dejavu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="dejavu/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://falcosuessgott.github.io/dejavu/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General</title>
-      <link>dejavu/go/go/</link>
+      <link>https://falcosuessgott.github.io/dejavu/go/go/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>dejavu/go/go/</guid>
+      <guid>https://falcosuessgott.github.io/dejavu/go/go/</guid>
       <description>Go  Go Install  Test go get via docker   Slice/Arrays  Sort Slice of struct Sort by time       Go Install Test go get via docker docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.io/vQhTU | bash &amp;amp;&amp;amp; source /root/.bashrc &amp;amp;&amp;amp; go get github.com/FalcoSuessgott/tago &amp;amp;&amp;amp; tago --version&amp;#34; as alias in .bash_profile
 goinstall(){ docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.</description>
     </item>
