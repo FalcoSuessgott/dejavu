@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RHEL on Dejavu</title>
-    <link>/linux/rhel/</link>
+    <link>dejavu/linux/rhel/</link>
     <description>Recent content in RHEL on Dejavu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="/linux/rhel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="dejavu/linux/rhel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General</title>
-      <link>/linux/rhel/rhel/</link>
+      <link>dejavu/linux/rhel/rhel/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>/linux/rhel/rhel/</guid>
+      <guid>dejavu/linux/rhel/rhel/</guid>
       <description>Linux  General  get process listening on port   DNS  Ovierview DNS Records get public ip /etc/nsswitch.conf   RHEL  Change Timezone open port using firewalld list all version of rpm       Change Timezone timedatectl list-timezones timedatectl set-timezone Europa/Berlin open port using firewalld sudo firewall-cmd --zone=public --permanent --add-port 6052/tcp sudo firewall-cmd --reload list all version of rpm $&amp;gt; yum list cloud-init --showduplicates Installed Packages cloud-init.</description>
     </item>
     
     <item>
       <title>RPM</title>
-      <link>/linux/rhel/rpm/</link>
+      <link>dejavu/linux/rhel/rpm/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>/linux/rhel/rpm/</guid>
+      <guid>dejavu/linux/rhel/rpm/</guid>
       <description>  RPM  see if rpm files has been changed     see if rpm files has been changed rpm -qa | xargs rpm --verify --nomtime | less </description>
     </item>
     

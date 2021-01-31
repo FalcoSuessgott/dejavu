@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on Dejavu</title>
-    <link>/kubernetes/</link>
+    <link>dejavu/kubernetes/</link>
     <description>Recent content in Kubernetes on Dejavu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="dejavu/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>etcd</title>
-      <link>/kubernetes/etcd/</link>
+      <link>dejavu/kubernetes/etcd/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>/kubernetes/etcd/</guid>
+      <guid>dejavu/kubernetes/etcd/</guid>
       <description>etcd leader election  only on master out of all masters is the active (leader) master. the passive master redirect the write requests to the leader they check periodically the connection to each other the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine  </description>
     </item>
     
     <item>
       <title>General</title>
-      <link>/kubernetes/kubernetes/</link>
+      <link>dejavu/kubernetes/kubernetes/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>/kubernetes/kubernetes/</guid>
+      <guid>dejavu/kubernetes/kubernetes/</guid>
       <description>Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp;amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file.</description>
     </item>
     
     <item>
       <title>kubectl</title>
-      <link>/kubernetes/kubectl/</link>
+      <link>dejavu/kubernetes/kubectl/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
-      <guid>/kubernetes/kubectl/</guid>
+      <guid>dejavu/kubernetes/kubectl/</guid>
       <description>Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp;amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file.</description>
     </item>
     

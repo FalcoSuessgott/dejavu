@@ -3,136 +3,136 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/ansible/</loc>
+    <loc>dejavu/ansible/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/bash/</loc>
+    <loc>dejavu/bash/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/container/</loc>
+    <loc>dejavu/container/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/git/</loc>
+    <loc>dejavu/git/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/go/</loc>
+    <loc>dejavu/go/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/kubernetes/</loc>
+    <loc>dejavu/kubernetes/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/linux/</loc>
+    <loc>dejavu/linux/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/python/</loc>
+    <loc>dejavu/python/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/vim/</loc>
+    <loc>dejavu/vim/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/container/docker/</loc>
+    <loc>dejavu/container/docker/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/kubernetes/etcd/</loc>
+    <loc>dejavu/kubernetes/etcd/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ansible/ansible/</loc>
+    <loc>dejavu/ansible/ansible/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/bash/bash/</loc>
+    <loc>dejavu/bash/bash/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/git/git/</loc>
+    <loc>dejavu/git/git/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/go/go/</loc>
+    <loc>dejavu/go/go/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/kubernetes/kubernetes/</loc>
+    <loc>dejavu/kubernetes/kubernetes/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/linux/linux/</loc>
+    <loc>dejavu/linux/linux/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/python/python/</loc>
+    <loc>dejavu/python/python/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/vim/vim/</loc>
+    <loc>dejavu/vim/vim/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/kubernetes/kubectl/</loc>
+    <loc>dejavu/kubernetes/kubectl/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/container/podman/</loc>
+    <loc>dejavu/container/podman/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>dejavu/</loc>
     <lastmod>2019-10-26T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/linux/rhel/rhel/</loc>
+    <loc>dejavu/linux/rhel/rhel/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/linux/rhel/</loc>
+    <loc>dejavu/linux/rhel/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/linux/rhel/rpm/</loc>
+    <loc>dejavu/linux/rhel/rpm/</loc>
     <lastmod>2017-10-17T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>dejavu/categories/</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>dejavu/tags/</loc>
   </url>
   
 </urlset>
