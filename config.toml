@@ -1,0 +1,77 @@
+baseURL = "https://falcosuessgott.github.io/dejavu/"
+
+languageCode = "en-us"
+DefaultContentLanguage = "en"
+title = "Dejavu"
+theme = "hugo-theme-techdoc"
+
+hasCJKLanguage = true
+metaDataFormat = "yaml"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= false
+enableMissingTranslationPlaceholders = false
+
+[params]
+    description = "Personal notes and snippets I keep forgetting"
+    github_repository = "https://github.com/FalcoSuessgott/dejavu"
+    title = "Dejavu"
+    images = ["images/og-image.png"] 
+    custom_font_color = ""
+    custom_background_color = ""
+    menu_style = "open-menu"
+    dateformat = "" 
+    menu_exclusion = [
+        "archives",
+        "archive",
+        "blog",
+        "entry",
+        "post",
+        "posts",
+    ]
+
+    algolia_search_enable = true
+    algolia_indexName = "dejavu"
+    algolia_appId = "IHQSDYOJJ3"
+    algolia_apiKey = "64d4f3159a43ea358178c7bf5a431819"
+
+[menu]
+    [[menu.main]]
+        name = "Wiki"
+        url = "/"
+        weight = 1
+
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark.renderer]
+        unsafe= true
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+        ordered = false
+
+[outputs]
+    home = ["HTML", "Algolia"]
+
+[outputFormats.Algolia]
+    baseName = "algolia"
+    mediaType = "application/json"
+    isPlainText = true
+    notAlternative = true
+
+[params.algolia]
+    vars = [
+        "title",
+        "summary",
+        "content",
+        "date",
+        "publishdate",
+        "description",
+        "permalink",
+        "keywords",
+        "lastmod",
+    ]
+    params = [
+        "tags",
+        "categories",
+    ]

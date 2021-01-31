@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on Dejavu</title>
+    <link>https://falcosuessgott.github.io/dejavu/bash/</link>
+    <description>Recent content in Bash on Dejavu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://falcosuessgott.github.io/dejavu/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>https://falcosuessgott.github.io/dejavu/bash/bash/</link>
+      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      
+      <guid>https://falcosuessgott.github.io/dejavu/bash/bash/</guid>
+      <description>  Bash  remove empty lines  insert/replace directly in file       remove empty lines sed &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE insert/replace directly in file sed -i &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE </description>
+    </item>
+    
+  </channel>
+</rss>
