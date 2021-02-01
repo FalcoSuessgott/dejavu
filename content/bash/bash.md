@@ -23,3 +23,9 @@ sed '/^[[:space:]]*$/d' FILE
 ```bash
 sed -i '/^[[:space:]]*$/d' FILE
 ```
+
+### test port connection
+```bash
+$> nc -vz 10.244.1.4 3306
+Connection to 10.244.1.4 3306 port [tcp/mysql] succeeded!
+```

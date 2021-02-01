@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/bash/bash/</guid>
-      <description>  Bash  remove empty lines  insert/replace directly in file       remove empty lines sed &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE insert/replace directly in file sed -i &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE </description>
+      <description>  Bash  remove empty lines  insert/replace directly in file       remove empty lines sed &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE insert/replace directly in file sed -i &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE test port connection $&amp;gt; nc -vz 10.244.1.4 3306 Connection to 10.244.1.4 3306 port [tcp/mysql] succeeded! </description>
     </item>
     
   </channel>

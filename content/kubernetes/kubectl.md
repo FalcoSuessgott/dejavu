@@ -82,3 +82,7 @@ for pod in $(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\
 * remove cert
 * ssh 10.25.112.158 -i priv_key -L 6443:localhost:6443
 
+### export object
+```bash
+kubectl get svc service -o yaml > service.yml
+```

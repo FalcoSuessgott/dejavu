@@ -33,7 +33,7 @@
 <meta itemprop="description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file.">
 <meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
 <meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
-<meta itemprop="wordCount" content="182">
+<meta itemprop="wordCount" content="192">
 <meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 
@@ -155,7 +155,9 @@
 <li>remove cert</li>
 <li>ssh 10.25.112.158 -i priv_key -L 6443:localhost:6443</li>
 </ul>
-<div class="edit-meta">
+<h3 id="export-object">export object</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get svc service -o yaml &gt; service.yml
+</code></pre></div><div class="edit-meta">
 Last updated on 17 Oct 2017
 
 
