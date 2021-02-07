@@ -248,16 +248,6 @@ kubectl expose pod nginx --port=80 --name nginx-service --type=NodePort --dry-ru
 
 ---
 
-## etcd
-* only on master out of all masters is the `active` (leader) master.
-* the passive master redirect the write requests to the leader
-* they check periodically the connection to each other
-* the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull
-* if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine
-
----
-
-
 ## Taint & Tolerations
 * Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints
 * available effects: NoSchedule, PreferNoSchedule, NoExecute
@@ -294,3 +284,58 @@ kubectl cordono node01
 kubeadm upgrade plan
 kubeadm upgrade apply v1.18.0
 ```
+
+## Auth
+### SA flow
+```bash
+kubectl create serviceaccount pvviewer
+kubectl create clusterrole pvviewer-role --resource=persistentvolumes --verb=list
+kubectl create clusterrolebinding pvviewer-role-binding --clusterrole=pvviewer-role --serviceaccount=default/pvviewer
+# add spec.serviceAccountName: pvviewer in Podmanifest
+# verify with kubectl describe pod xxx | grep SecretName
+``` 
+
+### CSR flow
+create .key & .csr:
+```bash
+openssl genrsa -out john.key 2048
+openssl req -new -key john.key -out john.csr
+```
+
+create csr request:
+```yml
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: john
+spec:
+  groups:
+  - system:authenticated
+  request: $(cat john.csr | base64 | tr -d "\n")
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+  - client auth
+```
+
+approve csr:
+```bash
+kubectl get csr
+kubectl certificate approve john
+kubectl get csr/john -o yaml
+```
+
+create role:
+```bash
+kubectl create role developer --verb=create --verb=get --verb=list --verb=update --verb=delete --resource=pods
+```
+
+create rolebinding:
+```bash
+kubectl create rolebinding developer-binding-john --role=developer --user=john`
+```
+verify:
+```
+$> kubectl auth can-i update pods --namespace=development --as=john
+yes
+```
+

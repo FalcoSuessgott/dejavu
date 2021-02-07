@@ -75,6 +75,11 @@ kubectl get pods,svc,pvc,pv
 for pod in $(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' -n flux); do kubectl delete pod $pod -n flux; done
 ```
 
+### debug services
+```bash
+kubectl run test --image=busybox:1.28 --rm --it -- nc -zvw 2 $SVC $PORT
+```
+
 ### kubectl via ssh jump host
 * cp .kube/config to local machine
 * change server to localhost:6443
@@ -85,4 +90,23 @@ for pod in $(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\
 ### export object
 ```bash
 kubectl get svc service -o yaml > service.yml
+```
+
+### run command in container
+```bash
+kubectl run temp --image=busybox:1.28 --rm --it -- hostname -f 
+```
+
+### get apiversion
+`kubectl api-versions | grep -i network`
+
+
+### test kubeconfig
+` kubectl cluster-info --kubeconfig=$PATH`
+
+### get network policy
+```bash
+kubectl get netpol # default-deny
+kubectl describe netpol default-deny
+kubectl 
 ```
