@@ -33,7 +33,7 @@
 <meta itemprop="description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file.">
 <meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
 <meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
-<meta itemprop="wordCount" content="827">
+<meta itemprop="wordCount" content="863">
 <meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 
@@ -381,15 +381,6 @@ kubectl scale deployment blue --replicas<span style="color:#f92672">=</span><spa
 </tbody>
 </table>
 <hr>
-<h2 id="etcd">etcd</h2>
-<ul>
-<li>only on master out of all masters is the <code>active</code> (leader) master.</li>
-<li>the passive master redirect the write requests to the leader</li>
-<li>they check periodically the connection to each other</li>
-<li>the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull</li>
-<li>if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine</li>
-</ul>
-<hr>
 <h2 id="taint--tolerations">Taint &amp; Tolerations</h2>
 <ul>
 <li>Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints</li>
@@ -413,7 +404,41 @@ kubectl cordono node01
 </code></pre></div><h3 id="using-kubeadm">using kubeadm</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubeadm upgrade plan
 kubeadm upgrade apply v1.18.0
-</code></pre></div><div class="edit-meta">
+</code></pre></div><h2 id="auth">Auth</h2>
+<h3 id="sa-flow">SA flow</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create serviceaccount pvviewer
+kubectl create clusterrole pvviewer-role --resource<span style="color:#f92672">=</span>persistentvolumes --verb<span style="color:#f92672">=</span>list
+kubectl create clusterrolebinding pvviewer-role-binding --clusterrole<span style="color:#f92672">=</span>pvviewer-role --serviceaccount<span style="color:#f92672">=</span>default/pvviewer
+<span style="color:#75715e"># add spec.serviceAccountName: pvviewer in Podmanifest</span>
+<span style="color:#75715e"># verify with kubectl describe pod xxx | grep SecretName</span>
+</code></pre></div><h3 id="csr-flow">CSR flow</h3>
+<p>create .key &amp; .csr:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl genrsa -out john.key <span style="color:#ae81ff">2048</span>
+openssl req -new -key john.key -out john.csr
+</code></pre></div><p>create csr request:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">certificates.k8s.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CertificateSigningRequest</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">john</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">groups</span>:
+  - <span style="color:#ae81ff">system:authenticated</span>
+  <span style="color:#f92672">request</span>: <span style="color:#ae81ff">$(cat john.csr | base64 | tr -d &#34;\n&#34;)</span>
+  <span style="color:#f92672">signerName</span>: <span style="color:#ae81ff">kubernetes.io/kube-apiserver-client</span>
+  <span style="color:#f92672">usages</span>:
+  - <span style="color:#ae81ff">client auth</span>
+</code></pre></div><p>approve csr:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get csr
+kubectl certificate approve john
+kubectl get csr/john -o yaml
+</code></pre></div><p>create role:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create role developer --verb<span style="color:#f92672">=</span>create --verb<span style="color:#f92672">=</span>get --verb<span style="color:#f92672">=</span>list --verb<span style="color:#f92672">=</span>update --verb<span style="color:#f92672">=</span>delete --resource<span style="color:#f92672">=</span>pods
+</code></pre></div><p>create rolebinding:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create rolebinding developer-binding-john --role<span style="color:#f92672">=</span>developer --user<span style="color:#f92672">=</span>john<span style="color:#e6db74">`</span>
+</code></pre></div><p>verify:</p>
+<pre><code>$&gt; kubectl auth can-i update pods --namespace=development --as=john
+yes
+</code></pre><div class="edit-meta">
 Last updated on 17 Oct 2017
 
 
@@ -474,6 +499,8 @@ Published on 17 Oct 2017
 <li class="parent"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
   
 <ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">cka</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/contributing/">contributing</a></li>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/etcd/">etcd</a></li>
 <li class="active"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubernetes/">General</a></li>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubectl/">kubectl</a></li>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>cka - Dejavu</title>
+<meta name="description" content="Personal notes and snippets I keep forgetting">
+<meta name="generator" content="Hugo 0.81.0-DEV" />
+<link href="https://falcosuessgott.github.io/dejavu//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">
+<link rel="stylesheet" href="https://falcosuessgott.github.io/dejavu/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://falcosuessgott.github.io/dejavu/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://falcosuessgott.github.io/dejavu/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="cka" />
+<meta property="og:description" content="setup # .bashrc alias k=kubectl export do=&#34;--dry-run=client -o yaml&#34; source .bashrc # .vimrc set tabstop=2 set expandtab # autocompletion source &lt;(kubectl completion bash) complete -F __start_kubectl k # to make it work with the alias k sudo apt-get install bash-completion source ~/.bashrc get context-names $&gt; k config get-contexts -o name create pod on master although NoSchedule apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: pod1 name: pod1 spec: containers: - image: httpd:2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://falcosuessgott.github.io/dejavu/kubernetes/cka/" />
+<meta property="og:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
+<meta property="article:published_time" content="2017-10-17T15:26:15+00:00" />
+<meta property="article:modified_time" content="2017-10-17T15:26:15+00:00" /><meta property="og:site_name" content="Dejavu" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
+
+<meta name="twitter:title" content="cka"/>
+<meta name="twitter:description" content="setup # .bashrc alias k=kubectl export do=&#34;--dry-run=client -o yaml&#34; source .bashrc # .vimrc set tabstop=2 set expandtab # autocompletion source &lt;(kubectl completion bash) complete -F __start_kubectl k # to make it work with the alias k sudo apt-get install bash-completion source ~/.bashrc get context-names $&gt; k config get-contexts -o name create pod on master although NoSchedule apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: pod1 name: pod1 spec: containers: - image: httpd:2."/>
+<meta itemprop="name" content="cka">
+<meta itemprop="description" content="setup # .bashrc alias k=kubectl export do=&#34;--dry-run=client -o yaml&#34; source .bashrc # .vimrc set tabstop=2 set expandtab # autocompletion source &lt;(kubectl completion bash) complete -F __start_kubectl k # to make it work with the alias k sudo apt-get install bash-completion source ~/.bashrc get context-names $&gt; k config get-contexts -o name create pod on master although NoSchedule apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: pod1 name: pod1 spec: containers: - image: httpd:2.">
+<meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
+<meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
+<meta itemprop="wordCount" content="994">
+<meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" />
+</head>
+<body><div class="container"><header>
+<h1>Dejavu</h1><a href="https://github.com/FalcoSuessgott/dejavu" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Personal notes and snippets I keep forgetting</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/dejavu/">Wiki</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>cka</h1>
+<h3 id="setup">setup</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># .bashrc</span>
+alias k<span style="color:#f92672">=</span>kubectl
+export <span style="color:#66d9ef">do</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--dry-run=client -o yaml&#34;</span>
+
+source .bashrc
+
+<span style="color:#75715e"># .vimrc</span>
+set tabstop<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+set expandtab
+
+<span style="color:#75715e"># autocompletion</span>
+source &lt;<span style="color:#f92672">(</span>kubectl completion bash<span style="color:#f92672">)</span>
+complete -F __start_kubectl k <span style="color:#75715e"># to make it work with the alias k</span>
+sudo apt-get install bash-completion
+source ~/.bashrc
+</code></pre></div><h3 id="get-context-names">get context-names</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; k config get-contexts -o name
+</code></pre></div><h3 id="create-pod-on-master-although-noschedule">create pod on master although NoSchedule</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">pod1</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pod1</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">containers</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">httpd:2.4.41-alpine</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pod1-container                 </span> <span style="color:#75715e"># change</span>
+    <span style="color:#f92672">resources</span>: {}
+  <span style="color:#f92672">dnsPolicy</span>: <span style="color:#ae81ff">ClusterFirst</span>
+  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Always</span>
+  <span style="color:#f92672">tolerations</span>:                            <span style="color:#75715e"># add</span>
+  - <span style="color:#f92672">effect</span>: <span style="color:#ae81ff">NoSchedule                   </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">key</span>: <span style="color:#ae81ff">node-role.kubernetes.io/master  </span> <span style="color:#75715e"># add</span>
+  <span style="color:#f92672">nodeSelector</span>:                           <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">node-role.kubernetes.io/master</span>: <span style="color:#e6db74">&#34;&#34;</span>    <span style="color:#75715e"># add</span>
+<span style="color:#f92672">status</span>: {}
+</code></pre></div><h3 id="scale-down-statefulset">scale down StatefulSet</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; k -n project-c13 scale sts o3db --replicas <span style="color:#ae81ff">1</span> --record  <span style="color:#75715e"># --record creates an annotation</span>
+statefulset.apps/o3db scaled
+</code></pre></div><h3 id="liveness--readyness-probe">liveness &amp; readyness probe</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">ready-if-service-ready</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ready-if-service-ready</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">containers</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.16.1-alpine</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ready-if-service-ready</span>
+    <span style="color:#f92672">resources</span>: {}
+    <span style="color:#f92672">livenessProbe</span>:                               <span style="color:#75715e"># add from here</span>
+      <span style="color:#f92672">exec</span>:
+        <span style="color:#f92672">command</span>:
+        - <span style="color:#e6db74">&#39;true&#39;</span>
+    <span style="color:#f92672">readinessProbe</span>:
+      <span style="color:#f92672">exec</span>:
+        <span style="color:#f92672">command</span>:
+        - <span style="color:#ae81ff">sh</span>
+        - -<span style="color:#ae81ff">c</span>
+        - <span style="color:#e6db74">&#39;wget -T2 -O- http://service-am-i-ready:80&#39;</span>   <span style="color:#75715e"># to here</span>
+  <span style="color:#f92672">dnsPolicy</span>: <span style="color:#ae81ff">ClusterFirst</span>
+  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Always</span>
+<span style="color:#f92672">status</span>: {}
+</code></pre></div><h3 id="sorting-pod-by-metadata">sorting pod by metadata</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pod -A --sort-by<span style="color:#f92672">=</span>.metadata.creationTimestamp
+kubectl get pod -A --sort-by<span style="color:#f92672">=</span>.metadata.uid
+</code></pre></div><h3 id="using-volume-in-deployment">using volume in deployment</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">safari</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">safari</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">project-tiger</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">safari</span>
+  <span style="color:#f92672">strategy</span>: {}
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">safari</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">volumes</span>:                                      <span style="color:#75715e"># add</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data                                 </span> <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">persistentVolumeClaim</span>:                      <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">safari-pvc                    </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">httpd:2.4.41-alpine</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">container</span>
+        <span style="color:#f92672">volumeMounts</span>:                               <span style="color:#75715e"># add</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data                               </span> <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/tmp/safari-data              </span> <span style="color:#75715e"># add</span>
+</code></pre></div><h3 id="node-on-pod-ressource">node on pod ressource</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># kubectl top wasnt available but it still the valid answer...</span>
+kubectl top node
+kubectl top pod --containers<span style="color:#f92672">=</span>true
+</code></pre></div><h3 id="pod-to-node-without-scheduler">pod to node without scheduler</h3>
+<ul>
+<li>k get $POD $do</li>
+<li>then add spec.nodeName in manifest</li>
+<li>delete and recreate pod</li>
+</ul>
+<h3 id="rbac">rbac</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; k -n project-hamster create sa processor 
+serviceaccount/processor created
+$&gt; k -n project-hamster create role processor <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --verb<span style="color:#f92672">=</span>create <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --resource<span style="color:#f92672">=</span>secret <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --resource<span style="color:#f92672">=</span>configmap  <span style="color:#75715e"># no comma separated!</span>
+$&gt; k -n project-hamster create rolebinding processor <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --role processor <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --serviceaccount project-hamster:processor
+$&gt; k -n project-hamster auth can-i create secret <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --as system:serviceaccount:project-hamster:processor <span style="color:#75715e"># verify</span>
+</code></pre></div><h3 id="daemonset">daemonSet</h3>
+<ul>
+<li>There should be only ever one Pod of that Deployment running on one worker node:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.17.6-alpine</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">container1               </span> <span style="color:#75715e"># change</span>
+        <span style="color:#f92672">resources</span>: {}
+      - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">kubernetes/pause        </span> <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">container2               </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">affinity</span>:                                             <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">podAntiAffinity</span>:                                    <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">requiredDuringSchedulingIgnoredDuringExecution</span>:   <span style="color:#75715e"># add</span>
+          - <span style="color:#f92672">labelSelector</span>:                                  <span style="color:#75715e"># add</span>
+              <span style="color:#f92672">matchExpressions</span>:                             <span style="color:#75715e"># add</span>
+              - <span style="color:#f92672">key</span>: <span style="color:#ae81ff">id                                    </span> <span style="color:#75715e"># add</span>
+                <span style="color:#f92672">operator</span>: <span style="color:#ae81ff">In                               </span> <span style="color:#75715e"># add</span>
+                <span style="color:#f92672">values</span>:                                     <span style="color:#75715e"># add</span>
+                - <span style="color:#ae81ff">very-important                           </span> <span style="color:#75715e"># add</span>
+            <span style="color:#f92672">topologyKey</span>: <span style="color:#ae81ff">kubernetes.io/hostname            </span> <span style="color:#75715e"># add</span>
+</code></pre></div><h3 id="pod-shared-volume">pod shared volume</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">multi-container-playground</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">multi-container-playground</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">containers</span>:
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.17.6-alpine</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">c1                                                                     </span> <span style="color:#75715e"># change</span>
+    <span style="color:#f92672">env</span>:                                                                          <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MY_NODE_NAME                                                         </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">valueFrom</span>:                                                                  <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">fieldRef</span>:                                                                 <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">spec.nodeName                                               </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">volumeMounts</span>:                                                                 <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vol                                                                  </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/vol                                                            </span> <span style="color:#75715e"># add</span>
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox:1.31.1                                                        </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">c2                                                                     </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;while true; do date &gt;&gt; /vol/date.log; sleep 1; done&#34;</span>]  <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">volumeMounts</span>:                                                                 <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vol                                                                  </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/vol                                                            </span> <span style="color:#75715e"># add</span>
+  - <span style="color:#f92672">image</span>: <span style="color:#ae81ff">busybox:1.31.1                                                        </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">c3                                                                     </span> <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;tail -f /vol/date.log&#34;</span>]                                <span style="color:#75715e"># add</span>
+    <span style="color:#f92672">volumeMounts</span>:                                                                 <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vol                                                                  </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/vol                                                            </span> <span style="color:#75715e"># add</span>
+  <span style="color:#f92672">dnsPolicy</span>: <span style="color:#ae81ff">ClusterFirst</span>
+  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Always</span>
+  <span style="color:#f92672">volumes</span>:                                                                        <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">vol                                                                  </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">emptyDir</span>: {}                                                                <span style="color:#75715e"># add</span>
+</code></pre></div><p>verify</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">k exec multi-container-playground -c c1 -- env | grep MY
+</code></pre></div><h3 id="cluster-info">cluster-info</h3>
+<ul>
+<li>get PodCIDR</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">k describe node | less -p PodCIDR
+</code></pre></div><ul>
+<li>get service CIDR</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep range
+</code></pre></div><ul>
+<li>CNI Config file</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find /etc/cni/net.d/
+cat /etc/cni/net.d/10-weave.conflist
+</code></pre></div><h3 id="event-logging">event logging</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get events -A --sort-by<span style="color:#f92672">=</span>.metadata.creationTimestamp
+</code></pre></div><h3 id="namespaced-ressources">namespaced ressources</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">k api-resources --namespaced -o name
+</code></pre></div><ul>
+<li>ns with most roles</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># for each ns </span>
+k -n project-c13 get role --no-headers | wc -l
+</code></pre></div><h3 id="create-secret">create secret</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">k -n secret create secret generic secret2 --from-literal<span style="color:#f92672">=</span>user<span style="color:#f92672">=</span>user1 --from-literal<span style="color:#f92672">=</span>pass<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>
+</code></pre></div><p>mount secret into pod</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+<span style="color:#f92672">env</span>:                                  <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">APP_USER                     </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">valueFrom</span>:                          <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">secretKeyRef</span>:                     <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret2                  </span> <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user                      </span> <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">APP_PASS                     </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">valueFrom</span>:                          <span style="color:#75715e"># add</span>
+        <span style="color:#f92672">secretKeyRef</span>:                     <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret2                  </span> <span style="color:#75715e"># add</span>
+          <span style="color:#f92672">key</span>: <span style="color:#ae81ff">pass                      </span> <span style="color:#75715e">#</span>
+ <span style="color:#f92672">volumeMounts</span>:                         <span style="color:#75715e"># add</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret1                      </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/tmp/secret1            </span> <span style="color:#75715e"># add</span>
+      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>                      <span style="color:#75715e"># add</span>
+...
+</code></pre></div><ul>
+<li>verify:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; k -n secret exec secret-pod -- env | grep APP
+APP_PASS<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>
+APP_USER<span style="color:#f92672">=</span>user1
+$&gt; k -n secret exec secret-pod -- find /tmp/secret1
+/tmp/secret1
+/tmp/secret1/..data
+/tmp/secret1/halt
+/tmp/secret1/..2019_12_08_12_15_39.463036797
+/tmp/secret1/..2019_12_08_12_15_39.463036797/halt
+$&gt; k -n secret exec secret-pod -- cat /tmp/secret1/halt
+</code></pre></div><h3 id="update-node">update node</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubeadm version
+kubectl version
+kubelet --version
+kubeadm upgrade node <span style="color:#75715e"># fails</span>
+apt-cache show kubectl | grep 1.20
+apt-get install kubectl<span style="color:#f92672">=</span>1.20.1-00 kubelet<span style="color:#f92672">=</span>1.20.1-00
+kubectl version --client <span style="color:#75715e"># verify</span>
+systemctl restart kubelet
+kubeadm token create --print-join-command <span style="color:#75715e"># on master</span>
+kubeadm token list <span style="color:#75715e"># on master</span>
+kubeadm join 192.168.100.31:6443 --token a4h78k.qiebc2j7s8x47tbb     --discovery-token-ca-cert-hash  <span style="color:#75715e"># on worker</span>
+kubeadm reset <span style="color:#75715e"># in case of troubles</span>
+kubectl get nodes <span style="color:#75715e"># veriy</span>
+</code></pre></div><h3 id="certificate-validity">certificate validity</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; openssl x509  -noout -text -in /etc/kubernetes/pki/apiserver.crt | grep Validity -A2
+</code></pre></div><h3 id="clientserver-info">client/server info</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># client</span>
+$&gt; openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet-client-current.pem | grep Issuer
+$&gt; openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet-client-current.pem | grep <span style="color:#e6db74">&#34;Extended Key Usage&#34;</span> -A1
+<span style="color:#75715e"># server</span>
+$&gt; openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet.crt | grep Issuer
+$&gt; openssl x509  -noout -text -in /var/lib/kubelet/pki/kubelet.crt | grep <span style="color:#e6db74">&#34;Extended Key Usage&#34;</span> -A1
+</code></pre></div><h3 id="network-policy">network policy</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">NetworkPolicy</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">np-backend</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">project-snake</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">podSelector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">backend</span>
+  <span style="color:#f92672">policyTypes</span>:
+    - <span style="color:#ae81ff">Egress                   </span> <span style="color:#75715e"># policy is only about Egress</span>
+  <span style="color:#f92672">egress</span>:
+    -                           <span style="color:#75715e"># first rule</span>
+      <span style="color:#f92672">to</span>:                           <span style="color:#75715e"># first condition &#34;to&#34;</span>
+      - <span style="color:#f92672">podSelector</span>:
+          <span style="color:#f92672">matchLabels</span>:
+            <span style="color:#f92672">app</span>: <span style="color:#ae81ff">db1</span>
+      <span style="color:#f92672">ports</span>:                        <span style="color:#75715e"># second condition &#34;port&#34;</span>
+      - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+        <span style="color:#f92672">port</span>: <span style="color:#ae81ff">1111</span>
+    -                           <span style="color:#75715e"># second rule</span>
+      <span style="color:#f92672">to</span>:                           <span style="color:#75715e"># first condition &#34;to&#34;</span>
+      - <span style="color:#f92672">podSelector</span>:
+          <span style="color:#f92672">matchLabels</span>:
+            <span style="color:#f92672">app</span>: <span style="color:#ae81ff">db2</span>
+      <span style="color:#f92672">ports</span>:                        <span style="color:#75715e"># second condition &#34;port&#34;</span>
+      - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+        <span style="color:#f92672">port</span>: <span style="color:#ae81ff">2222</span>
+</code></pre></div><ul>
+<li>verify</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$&gt; k -n project-snake exec backend-0 -- curl -s 10.44.0.25:1111
+database one
+</code></pre></div><h3 id="etcd-backup">etcd backup</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># find auth from etcd systemd/ static pod manifest</span>
+<span style="color:#75715e"># save</span>
+ETCDCTL_API<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> etcdctl snapshot save /tmp/etcd-backup.db <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--cacert /etc/kubernetes/pki/etcd/ca.crt <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--cert /etc/kubernetes/pki/etcd/server.crt <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--key /etc/kubernetes/pki/etcd/server.key
+
+<span style="color:#75715e"># restore</span>
+ETCDCTL_API<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> etcdctl snapshot restore /tmp/etcd-backup.db --data-dir /var/lib/etcd-backup
+<span style="color:#75715e"># update etcd manifest using data-dir</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 17 Oct 2017
+
+
+<br>
+Published on 17 Oct 2017
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://falcosuessgott.github.io/dejavu/kubernetes/" title="Kubernetes"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Kubernetes</a>
+<a class="nav nav-next" href="https://falcosuessgott.github.io/dejavu/kubernetes/contributing/" title="contributing">Next - contributing <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/">Home</a></li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/">Ansible</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/ansible/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/">Bash</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/bash/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/container/">Container</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/container/docker/">Docker</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/container/podman/">Podman</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/git/">Git</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/git/git/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/go/">Go</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/go/go/">General</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">cka</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/contributing/">contributing</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/etcd/">etcd</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubernetes/">General</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubectl/">kubectl</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/">Linux</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/linux/">General</a></li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/">RHEL</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/rhel/">General</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/rpm/">RPM</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/python/">Python</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/python/python/">General</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/">vim</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/vim/">General</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

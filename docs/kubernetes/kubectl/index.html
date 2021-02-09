@@ -33,7 +33,7 @@
 <meta itemprop="description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file.">
 <meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
 <meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
-<meta itemprop="wordCount" content="192">
+<meta itemprop="wordCount" content="245">
 <meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 
@@ -147,6 +147,8 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods,svc,pvc,pv
 </code></pre></div><h3 id="delete-all-pods-in-certain-namespace">delete all pods in certain namespace</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> pod in <span style="color:#66d9ef">$(</span>kubectl get pods --template <span style="color:#e6db74">&#39;{{range .items}}{{.metadata.name}}{{&#34;\n&#34;}}{{end}}&#39;</span> -n flux<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span> kubectl delete pod $pod -n flux; <span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="debug-services">debug services</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl run test --image<span style="color:#f92672">=</span>busybox:1.28 --rm --it -- nc -zvw <span style="color:#ae81ff">2</span> $SVC $PORT
 </code></pre></div><h3 id="kubectl-via-ssh-jump-host">kubectl via ssh jump host</h3>
 <ul>
 <li>cp .kube/config to local machine</li>
@@ -157,6 +159,16 @@
 </ul>
 <h3 id="export-object">export object</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get svc service -o yaml &gt; service.yml
+</code></pre></div><h3 id="run-command-in-container">run command in container</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl run temp --image<span style="color:#f92672">=</span>busybox:1.28 --rm --it -- hostname -f 
+</code></pre></div><h3 id="get-apiversion">get apiversion</h3>
+<p><code>kubectl api-versions | grep -i network</code></p>
+<h3 id="test-kubeconfig">test kubeconfig</h3>
+<p><code> kubectl cluster-info --kubeconfig=$PATH</code></p>
+<h3 id="get-network-policy">get network policy</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get netpol <span style="color:#75715e"># default-deny</span>
+kubectl describe netpol default-deny
+kubectl 
 </code></pre></div><div class="edit-meta">
 Last updated on 17 Oct 2017
 
@@ -218,6 +230,8 @@ Published on 17 Oct 2017
 <li class="parent"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
   
 <ul class="sub-menu">
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">cka</a></li>
+<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/contributing/">contributing</a></li>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/etcd/">etcd</a></li>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubernetes/">General</a></li>
 <li class="active"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/kubectl/">kubectl</a></li>

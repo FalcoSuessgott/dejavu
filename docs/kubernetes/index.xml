@@ -8,12 +8,30 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://falcosuessgott.github.io/dejavu/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>cka</title>
+      <link>https://falcosuessgott.github.io/dejavu/kubernetes/cka/</link>
+      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      
+      <guid>https://falcosuessgott.github.io/dejavu/kubernetes/cka/</guid>
+      <description>setup # .bashrc alias k=kubectl export do=&amp;#34;--dry-run=client -o yaml&amp;#34; source .bashrc # .vimrc set tabstop=2 set expandtab # autocompletion source &amp;lt;(kubectl completion bash) complete -F __start_kubectl k # to make it work with the alias k sudo apt-get install bash-completion source ~/.bashrc get context-names $&amp;gt; k config get-contexts -o name create pod on master although NoSchedule apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: pod1 name: pod1 spec: containers: - image: httpd:2.</description>
+    </item>
+    
+    <item>
+      <title>contributing</title>
+      <link>https://falcosuessgott.github.io/dejavu/kubernetes/contributing/</link>
+      <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
+      
+      <guid>https://falcosuessgott.github.io/dejavu/kubernetes/contributing/</guid>
+      <description>build X cd kubernetes make WHAT=cmd/kubectl ./_output/bin/kubectl </description>
+    </item>
+    
+    <item>
       <title>etcd</title>
       <link>https://falcosuessgott.github.io/dejavu/kubernetes/etcd/</link>
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/kubernetes/etcd/</guid>
-      <description>etcd leader election  only on master out of all masters is the active (leader) master. the passive master redirect the write requests to the leader they check periodically the connection to each other the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine  </description>
+      <description>etcd leader election  only on master out of all masters is the active (leader) master. the passive master redirect the write requests to the leader they check periodically the connection to each other the leader populates the received write requests to the other master, if the write request were successfully writen on more than 50% of the masters (2 out of 3), then the write operation is considered successfull if the leader goes down, the remaining master elect a new leader, having 3 masters, you can loose one and still be fine  backup etcd $&amp;gt; ETCDCTL_API=3 etcdctl --endpoints https://[127.</description>
     </item>
     
     <item>
