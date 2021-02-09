@@ -1,11 +1,19 @@
-### setup
+---
+title: "cka"
+date: 2017-10-17T15:26:15Z
+draft: false
+weight: 40
+---
+
+### setup 
 ```bash
-# in ~/.bashrc
+# .bashrc
 alias k=kubectl
 export do="--dry-run=client -o yaml"
-source ~/.basrhc
 
-# in ~/.vimrc
+source .bashrc
+
+# .vimrc
 set tabstop=2
 set expandtab
 
@@ -15,6 +23,7 @@ complete -F __start_kubectl k # to make it work with the alias k
 sudo apt-get install bash-completion
 source ~/.bashrc
 ```
+
 ### get context-names
 ```bash
 $> k config get-contexts -o name
@@ -368,6 +377,3 @@ ETCDCTL_API=3 etcdctl snapshot save /tmp/etcd-backup.db \
 ETCDCTL_API=3 etcdctl snapshot restore /tmp/etcd-backup.db --data-dir /var/lib/etcd-backup
 # update etcd manifest using data-dir
 ```
-
-##
-
