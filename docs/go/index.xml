@@ -13,8 +13,8 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/go/go/</guid>
-      <description>Go  Go Install  Test go get via docker   Slice/Arrays  Sort Slice of struct Sort by time       Go Install Test go get via docker docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.io/vQhTU | bash &amp;amp;&amp;amp; source /root/.bashrc &amp;amp;&amp;amp; go get github.com/FalcoSuessgott/tago &amp;amp;&amp;amp; tago --version&amp;#34; as alias in .bash_profile
-goinstall(){ docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.</description>
+      <description>Go Install Test go get via docker docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.io/vQhTU | bash &amp;amp;&amp;amp; source /root/.bashrc &amp;amp;&amp;amp; go get github.com/FalcoSuessgott/tago &amp;amp;&amp;amp; tago --version&amp;#34; as alias in .bash_profile
+goinstall(){ docker run --rm centos:latest bash -c &amp;#34;yum install -y git &amp;amp;&amp;amp; curl -sL https://git.io/vQhTU | bash &amp;amp;&amp;amp; source /root/.bashrc &amp;amp;&amp;amp; go get github.com/$1&amp;amp;&amp;amp; $(echo $1 | cut -d &amp;#34;/&amp;#34; -f2)--version&amp;#34; } goinstall FalcoSuessgott/tago</description>
     </item>
     
   </channel>

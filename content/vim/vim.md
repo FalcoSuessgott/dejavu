@@ -5,10 +5,9 @@ draft: false
 weight: 40
 ---
 <!--ts-->
-         * [display tab and whitespaces](#display-tab-and-whitespaces)
-         * [delete everything after cursor](#delete-everything-after-cursor)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:44 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:43 PM CET -->
 
 <!--te-->
 

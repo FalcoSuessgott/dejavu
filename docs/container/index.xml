@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/container/docker/</guid>
-      <description>  Docker  bash into container build -&amp;gt; tag -&amp;gt; push image     bash into container docker run --name rpm_test --rm -it centos bash build -&amp;gt; tag -&amp;gt; push image docker build -t go-tito . docker tag go-tito:latest $REGISTRY/$USER/go-tito:latest docker push $REGISTRY/$USER/go-tito:latest </description>
+      <description>  bash into container docker run --name rpm_test --rm -it centos bash build -&amp;gt; tag -&amp;gt; push image docker build -t go-tito . docker tag go-tito:latest $REGISTRY/$USER/go-tito:latest docker push $REGISTRY/$USER/go-tito:latest </description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/container/podman/</guid>
-      <description>  Podman  Generate Systemd File for Pod/Container      Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &amp;gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service </description>
+      <description>   Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &amp;gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service </description>
     </item>
     
   </channel>

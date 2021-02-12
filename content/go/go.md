@@ -6,13 +6,9 @@ weight: 40
 ---
 
 <!--ts-->
-      * [Go Install](#go-install)
-         * [Test go get via docker](#test-go-get-via-docker)
-      * [Slice/Arrays](#slicearrays)
-         * [Sort Slice of struct](#sort-slice-of-struct)
-         * [Sort by time](#sort-by-time)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:40 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:40 PM CET -->
 
 <!--te-->
 ## Go Install

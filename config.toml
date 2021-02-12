@@ -19,7 +19,7 @@ enableMissingTranslationPlaceholders = false
     images = ["images/og-image.png"] 
     custom_font_color = ""
     custom_background_color = ""
-    menu_style = "open-menu"
+    menu_style = "slide-menu"
     dateformat = "" 
     menu_exclusion = [
         "archives",

@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/python/python/</guid>
-      <description>  Python  pip module to rpm short if else     pip module to rpm curl $PIP.tar.gz cd $PIP python3 setup.py bdist_rpm short if else x = &amp;#34;www-data&amp;#34; if distro == &amp;#34;debian&amp;#34; or distro == &amp;#34;ubuntu&amp;#34; else &amp;#34;apache&amp;#34; </description>
+      <description>  pip module to rpm curl $PIP.tar.gz cd $PIP python3 setup.py bdist_rpm short if else x = &amp;#34;www-data&amp;#34; if distro == &amp;#34;debian&amp;#34; or distro == &amp;#34;ubuntu&amp;#34; else &amp;#34;apache&amp;#34; </description>
     </item>
     
   </channel>

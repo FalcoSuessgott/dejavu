@@ -18,7 +18,7 @@
 :root {}
 </style>
 <meta property="og:title" content="Podman" />
-<meta property="og:description" content="  Podman  Generate Systemd File for Pod/Container      Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service " />
+<meta property="og:description" content="   Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://falcosuessgott.github.io/dejavu/container/podman/" />
 <meta property="og:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
@@ -28,12 +28,12 @@
 <meta name="twitter:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 <meta name="twitter:title" content="Podman"/>
-<meta name="twitter:description" content="  Podman  Generate Systemd File for Pod/Container      Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service "/>
+<meta name="twitter:description" content="   Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service "/>
 <meta itemprop="name" content="Podman">
-<meta itemprop="description" content="  Podman  Generate Systemd File for Pod/Container      Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service ">
+<meta itemprop="description" content="   Generate Systemd File for Pod/Container podman create -d $container $args podman generate systemd $container &gt; $container.service mv $container.service ~/.config/systemd/user/. systemctl --user daemon-reload systemctl --user start $container.service ">
 <meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
 <meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
-<meta itemprop="wordCount" content="32">
+<meta itemprop="wordCount" content="26">
 <meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 
@@ -54,14 +54,7 @@
 <div class="content-container">
 <main><h1>Podman</h1>
 <!--ts-->
-<ul>
-<li><a href="#podman">Podman</a>
-<ul>
-<li><a href="#generate-systemd-file-for-podcontainer">Generate Systemd File for Pod/Container</a></li>
-</ul>
-</li>
-</ul>
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:27 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:39 PM CET -->
 <!--te-->
 <hr>
 <h3 id="generate-systemd-file-for-podcontainer">Generate Systemd File for Pod/Container</h3>
@@ -83,11 +76,11 @@ Published on 17 Oct 2017
 </main>
 <div class="sidebar">
 
-<nav class="open-menu">
+<nav class="slide-menu">
 <ul>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/">Home</a></li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/">Ansible</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/ansible/">Ansible<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/ansible/">General</a></li>
@@ -95,7 +88,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/">Bash</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/bash/">Bash<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/bash/">General</a></li>
@@ -103,7 +96,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class="parent"><a href="https://falcosuessgott.github.io/dejavu/container/">Container</a>
+<li class="parent has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/container/">Container<span class="mark opened">-</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/container/docker/">Docker</a></li>
@@ -112,7 +105,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/git/">Git</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/git/">Git<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/git/git/">General</a></li>
@@ -120,7 +113,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/go/">Go</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/go/">Go<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/go/go/">General</a></li>
@@ -128,7 +121,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">cka</a></li>
@@ -140,12 +133,12 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/">Linux</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/linux/">Linux<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/linux/">General</a></li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/">RHEL</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/">RHEL<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/rhel/">General</a></li>
@@ -157,7 +150,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/python/">Python</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/python/">Python<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/python/python/">General</a></li>
@@ -165,7 +158,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/">vim</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/vim/">vim<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/vim/">General</a></li>

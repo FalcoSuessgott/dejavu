@@ -6,11 +6,9 @@ weight: 40
 ---
 
 <!--ts-->
-         * [remove empty lines](#remove-empty-lines)
-         * [insert/replace directly in file](#insertreplace-directly-in-file)
-         * [test port connection](#test-port-connection)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:38 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:38 PM CET -->
 
 <!--te-->
 

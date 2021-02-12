@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/git/git/</guid>
-      <description>  Git  delete local and remote tag delete all local and remote tags reset to commit      delete local and remote tag git tag -d v1.1.0 git push --delete origin v1.1.0 delete all local and remote tags for tag in $(git tag -l); do git tag -d $tag &amp;amp;&amp;amp; git push --delete origin $tag; done reset to commit git reset --hard $tagname </description>
+      <description>   delete local and remote tag git tag -d v1.1.0 git push --delete origin v1.1.0 delete all local and remote tags for tag in $(git tag -l); do git tag -d $tag &amp;amp;&amp;amp; git push --delete origin $tag; done reset to commit git reset --hard $tagname </description>
     </item>
     
   </channel>

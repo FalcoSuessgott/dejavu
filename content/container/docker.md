@@ -6,10 +6,9 @@ weight: 40
 ---
 
 <!--ts-->
-         * [bash into container](#bash-into-container)
-         * [build -&gt; tag -&gt; push image](#build---tag---push-image)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:39 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:39 PM CET -->
 
 <!--te-->
 

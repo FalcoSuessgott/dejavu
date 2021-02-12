@@ -18,7 +18,7 @@
 :root {}
 </style>
 <meta property="og:title" content="kubectl" />
-<meta property="og:description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file." />
+<meta property="og:description" content="apply changes kubectl apply -f file.yml create objects kubectl create -f file.yml get multiple objects kubectl get pods,svc,pvc,pv delete all pods in certain namespace for pod in $(kubectl get pods --template &#39;{{range .items}}{{.metadata.name}}{{&#34;\n&#34;}}{{end}}&#39; -n flux); do kubectl delete pod $pod -n flux; done debug services kubectl run test --image=busybox:1.28 --rm --it -- nc -zvw 2 $SVC $PORT kubectl via ssh jump host  cp .kube/config to local machine change server to localhost:6443 add insecure-skip-tls-verify: true in cluster remove cert ssh 10." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://falcosuessgott.github.io/dejavu/kubernetes/kubectl/" />
 <meta property="og:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
@@ -28,12 +28,12 @@
 <meta name="twitter:image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 <meta name="twitter:title" content="kubectl"/>
-<meta name="twitter:description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file."/>
+<meta name="twitter:description" content="apply changes kubectl apply -f file.yml create objects kubectl create -f file.yml get multiple objects kubectl get pods,svc,pvc,pv delete all pods in certain namespace for pod in $(kubectl get pods --template &#39;{{range .items}}{{.metadata.name}}{{&#34;\n&#34;}}{{end}}&#39; -n flux); do kubectl delete pod $pod -n flux; done debug services kubectl run test --image=busybox:1.28 --rm --it -- nc -zvw 2 $SVC $PORT kubectl via ssh jump host  cp .kube/config to local machine change server to localhost:6443 add insecure-skip-tls-verify: true in cluster remove cert ssh 10."/>
 <meta itemprop="name" content="kubectl">
-<meta itemprop="description" content="Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file.">
+<meta itemprop="description" content="apply changes kubectl apply -f file.yml create objects kubectl create -f file.yml get multiple objects kubectl get pods,svc,pvc,pv delete all pods in certain namespace for pod in $(kubectl get pods --template &#39;{{range .items}}{{.metadata.name}}{{&#34;\n&#34;}}{{end}}&#39; -n flux); do kubectl delete pod $pod -n flux; done debug services kubectl run test --image=busybox:1.28 --rm --it -- nc -zvw 2 $SVC $PORT kubectl via ssh jump host  cp .kube/config to local machine change server to localhost:6443 add insecure-skip-tls-verify: true in cluster remove cert ssh 10.">
 <meta itemprop="datePublished" content="2017-10-17T15:26:15+00:00" />
 <meta itemprop="dateModified" content="2017-10-17T15:26:15+00:00" />
-<meta itemprop="wordCount" content="245">
+<meta itemprop="wordCount" content="133">
 <meta itemprop="image" content="https://falcosuessgott.github.io/dejavu/images/og-image.png"/>
 
 
@@ -54,90 +54,7 @@
 <div class="content-container">
 <main><h1>kubectl</h1>
 <!--ts-->
-<ul>
-<li><a href="#kubernetes">Kubernetes</a>
-<ul>
-<li><a href="#kubectl">kubectl</a>
-<ul>
-<li><a href="#apply-changes">apply changes</a></li>
-<li><a href="#create-objects">create objects</a></li>
-<li><a href="#get-multiple-objects">get multiple objects</a></li>
-<li><a href="#delete-all-pods-in-certain-namespace">delete all pods in certain namespace</a></li>
-</ul>
-</li>
-<li><a href="#ooa">ooa</a></li>
-<li><a href="#general">General</a>
-<ul>
-<li><a href="#required-ports-control-plane">Required Ports control plane</a></li>
-<li><a href="#worker-nodes">Worker Nodes</a></li>
-<li><a href="#etcd-ports">etcd ports</a></li>
-<li><a href="#default-manifest-yml">default manifest yml</a></li>
-<li><a href="#get-possible-defintion-options">get possible defintion options</a></li>
-<li><a href="#version-differences">version differences</a></li>
-<li><a href="#auto-generate-a-manifest">auto generate a manifest</a></li>
-</ul>
-</li>
-<li><a href="#kubectl-via-ssh-jump-host">kubectl via ssh jump host</a></li>
-<li><a href="#pods">Pods</a>
-<ul>
-<li><a href="#default-pod-ressources">Default Pod ressources</a></li>
-<li><a href="#create-and-expose-a-pod">create and expose a pod</a></li>
-<li><a href="#static-pod">Static Pod</a></li>
-</ul>
-</li>
-<li><a href="#replicaset">ReplicaSet</a>
-<ul>
-<li><a href="#update-replicaset">update replicaset</a></li>
-</ul>
-</li>
-<li><a href="#deployments">Deployments</a>
-<ul>
-<li><a href="#create-deployment-and-scale-it">Create Deployment and scale it</a></li>
-</ul>
-</li>
-<li><a href="#maintenance">Maintenance</a>
-<ul>
-<li><a href="#drain-a-node">drain a node</a></li>
-<li><a href="#mark-a-node-as-unscheduable">mark a node as unscheduable</a></li>
-</ul>
-</li>
-<li><a href="#daemonsets">DaemonSets</a></li>
-<li><a href="#namespace">Namespace</a>
-<ul>
-<li><a href="#get-all-namespaces">get all namespaces</a></li>
-<li><a href="#change-namespace">change namespace</a></li>
-</ul>
-</li>
-<li><a href="#service">Service</a>
-<ul>
-<li><a href="#expose-a-pod-on-a-specific-port">expose a pod on a specific port</a></li>
-<li><a href="#types">Types</a></li>
-</ul>
-</li>
-<li><a href="#dns">DNS</a>
-<ul>
-<li><a href="#coredns">CoreDNS</a></li>
-<li><a href="#fqdn">FQDN</a></li>
-</ul>
-</li>
-<li><a href="#etcd">etcd</a></li>
-<li><a href="#taint--tolerations">Taint &amp; Tolerations</a>
-<ul>
-<li><a href="#add-taint-to-node">add taint to node</a></li>
-<li><a href="#remove-taint-of-node">remove taint of node</a></li>
-<li><a href="#tolerant-specification">tolerant specification</a></li>
-</ul>
-</li>
-<li><a href="#upgrade">Upgrade</a>
-<ul>
-<li><a href="#prepare-node-for-upgrades">prepare node for upgrades</a></li>
-<li><a href="#using-kubeadm">using kubeadm</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:27 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:41 PM CET -->
 <!--te-->
 <h3 id="apply-changes">apply changes</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl apply -f file.yml
@@ -182,11 +99,11 @@ Published on 17 Oct 2017
 </main>
 <div class="sidebar">
 
-<nav class="open-menu">
+<nav class="slide-menu">
 <ul>
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/">Home</a></li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/">Ansible</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/ansible/">Ansible<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/ansible/ansible/">General</a></li>
@@ -194,7 +111,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/">Bash</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/bash/">Bash<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/bash/bash/">General</a></li>
@@ -202,7 +119,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/container/">Container</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/container/">Container<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/container/docker/">Docker</a></li>
@@ -211,7 +128,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/git/">Git</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/git/">Git<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/git/git/">General</a></li>
@@ -219,7 +136,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/go/">Go</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/go/">Go<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/go/go/">General</a></li>
@@ -227,7 +144,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class="parent"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes</a>
+<li class="parent has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/kubernetes/">Kubernetes<span class="mark opened">-</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/kubernetes/cka/">cka</a></li>
@@ -239,12 +156,12 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/">Linux</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/linux/">Linux<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/linux/">General</a></li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/">RHEL</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/">RHEL<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/linux/rhel/rhel/">General</a></li>
@@ -256,7 +173,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/python/">Python</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/python/">Python<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/python/python/">General</a></li>
@@ -264,7 +181,7 @@ Published on 17 Oct 2017
   
 </li>
 
-<li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/">vim</a>
+<li class=" has-sub-menu"><a href="https://falcosuessgott.github.io/dejavu/vim/">vim<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
 <li class=""><a href="https://falcosuessgott.github.io/dejavu/vim/vim/">General</a></li>

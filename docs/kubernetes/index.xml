@@ -22,7 +22,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/kubernetes/contributing/</guid>
-      <description>build X cd kubernetes make WHAT=cmd/kubectl ./_output/bin/kubectl </description>
+      <description>build X cd kubernetes make WHAT=cmd/kubectl ./_output/bin/kubectl test X cd kubernetes # k8s.io/kubernetes added automatically make WHAT=./pkg/kubectl </description>
     </item>
     
     <item>
@@ -40,7 +40,8 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/kubernetes/kubernetes/</guid>
-      <description>Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp;amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       kubectl apply changes kubectl apply -f file.</description>
+      <description>kubectl apply changes kubectl apply -f file.yml create objects kubectl create -f file.yml get multiple objects kubectl get pods,svc,pvc,pv delete all pods in certain namespace for pod in $(kubectl get pods --template &amp;#39;{{range .items}}{{.metadata.name}}{{&amp;#34;\n&amp;#34;}}{{end}}&amp;#39; -n flux); do kubectl delete pod $pod -n flux; done ooa General Required Ports control plane https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#control-plane-node-s
+   Protocol Direction Port Range Purpose Used by     TCP Inbound 6443 Kubernetes API server All   TCP Inbound 2379-2380 etcd server client API kube-apiserver, etcd   TCP Inbound 10250 Kubelet API Self, Control plane   TCP Inbound 10251 kube-scheduler Self   TCP Inbound 10252 kube-controller-manager Self    Worker Nodes    Protocol Direction Port Range Purpose Used by     TCP Inbound 10250 Kubelet API Self, Control plane   TCP Inbound 30000-32767 NodePort Services All    etcd ports  TCP/2379 for client requests TCP/2380 for peer communication  default manifest yml version: v1 kind: Pod metadata: spec: get possible defintion options kubectl explain pod --recursivce | grep -A5 tolerations version differences kube-api server == X controller manager &amp;gt;= X-1 kube-scheduler &amp;gt;= X-1 kubelet &amp;gt;= X-2 kube-proxy &amp;gt;= X-2 kubectly == x+1 || x-1</description>
     </item>
     
     <item>
@@ -49,7 +50,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/kubernetes/kubectl/</guid>
-      <description>Kubernetes  kubectl  apply changes create objects get multiple objects delete all pods in certain namespace   ooa General  Required Ports control plane Worker Nodes etcd ports default manifest yml get possible defintion options version differences auto generate a manifest   kubectl via ssh jump host Pods  Default Pod ressources create and expose a pod Static Pod   ReplicaSet  update replicaset   Deployments  Create Deployment and scale it   Maintenance  drain a node mark a node as unscheduable   DaemonSets Namespace  get all namespaces change namespace   Service  expose a pod on a specific port Types   DNS  CoreDNS FQDN   etcd Taint &amp;amp; Tolerations  add taint to node remove taint of node tolerant specification   Upgrade  prepare node for upgrades using kubeadm       apply changes kubectl apply -f file.</description>
+      <description>apply changes kubectl apply -f file.yml create objects kubectl create -f file.yml get multiple objects kubectl get pods,svc,pvc,pv delete all pods in certain namespace for pod in $(kubectl get pods --template &amp;#39;{{range .items}}{{.metadata.name}}{{&amp;#34;\n&amp;#34;}}{{end}}&amp;#39; -n flux); do kubectl delete pod $pod -n flux; done debug services kubectl run test --image=busybox:1.28 --rm --it -- nc -zvw 2 $SVC $PORT kubectl via ssh jump host  cp .kube/config to local machine change server to localhost:6443 add insecure-skip-tls-verify: true in cluster remove cert ssh 10.</description>
     </item>
     
   </channel>

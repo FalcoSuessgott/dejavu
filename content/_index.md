@@ -8,13 +8,8 @@ description: Text about this post
 images:
 - images/pexels-photo-196666.jpeg
 ---
+My personal notes and snippets I keep forgetting
 
-<!--ts-->
-   * [Search entries](#search-entries)
-
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:25:04 PM CET -->
-
-<!--te-->
-
-# Search entries 
+----
+### Search entries 
 {{< search >}}{{< /search >}} 

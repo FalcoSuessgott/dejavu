@@ -6,19 +6,9 @@ weight: 40
 ---
 
 <!--ts-->
-         * [apply changes](#apply-changes)
-         * [create objects](#create-objects)
-         * [get multiple objects](#get-multiple-objects)
-         * [delete all pods in certain namespace](#delete-all-pods-in-certain-namespace)
-         * [debug services](#debug-services)
-         * [kubectl via ssh jump host](#kubectl-via-ssh-jump-host)
-         * [export object](#export-object)
-         * [run command in container](#run-command-in-container)
-         * [get apiversion](#get-apiversion)
-         * [test kubeconfig](#test-kubeconfig)
-         * [get network policy](#get-network-policy)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:42 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:41 PM CET -->
 
 <!--te-->
 ### apply changes

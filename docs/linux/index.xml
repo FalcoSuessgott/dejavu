@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/linux/linux/</guid>
-      <description>Linux   Linux  General  get process listening on port   DNS  Ovierview DNS Records get public ip /etc/nsswitch.conf   RHEL  Change Timezone open port using firewalld list all version of rpm       General get process listening on port lsof -i :8080 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME java 931220 morelly_t1 200u IPv6 3669215 0t0 TCP *:http-alt (LISTEN) DNS Ovierview DNS Records  A-Record: Domain Name -&amp;gt; IPv4 AAAA-Record: Domain-Name -&amp;gt; IPv6 CNAME: Domain-Name -&amp;gt; Domain Name (Alias)  get public ip $&amp;gt; curl ifconfig.</description>
+      <description>Linux   General get process listening on port lsof -i :8080 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME java 931220 morelly_t1 200u IPv6 3669215 0t0 TCP *:http-alt (LISTEN) DNS Ovierview DNS Records  A-Record: Domain Name -&amp;gt; IPv4 AAAA-Record: Domain-Name -&amp;gt; IPv6 CNAME: Domain-Name -&amp;gt; Domain Name (Alias)  get public ip $&amp;gt; curl ifconfig.me 109.90.5.242 /etc/nsswitch.conf controls the order and which services to use for name resolution</description>
     </item>
     
   </channel>

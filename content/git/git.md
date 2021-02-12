@@ -6,11 +6,9 @@ draft: false
 weight: 40
 ---
 <!--ts-->
-         * [delete local and remote tag](#delete-local-and-remote-tag)
-         * [delete all local and remote tags](#delete-all-local-and-remote-tags)
-         * [reset to commit](#reset-to-commit)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:40 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:40 PM CET -->
 
 <!--te-->
 ---

@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/vim/vim/</guid>
-      <description>  Vim  display tab and whitespaces delete everything after cursor     display tab and whitespaces set listset listchars=tab:&amp;gt;-delete everything after cursor :$LINE_NUMBER:dG # delete Global</description>
+      <description>  display tab and whitespaces set listset listchars=tab:&amp;gt;-delete everything after cursor :$LINE_NUMBER:dG # delete Global</description>
     </item>
     
   </channel>

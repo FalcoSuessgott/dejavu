@@ -7,15 +7,9 @@ weight: 40
 
 # Linux
 <!--ts-->
-   * [Linux](#linux)
-      * [General](#general)
-         * [get process listening on port](#get-process-listening-on-port)
-      * [DNS](#dns)
-         * [Ovierview DNS Records](#ovierview-dns-records)
-         * [get public ip](#get-public-ip)
-         * [/etc/nsswitch.conf](#etcnsswitchconf)
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:43 PM CET -->
+
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:42 PM CET -->
 
 <!--te-->
 ## General
