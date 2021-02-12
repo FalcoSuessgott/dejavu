@@ -6,7 +6,6 @@ weight: 40
 ---
 
 <!--ts-->
-   * [Kubernetes](#kubernetes)
       * [kubectl](#kubectl)
          * [apply changes](#apply-changes)
          * [create objects](#create-objects)
@@ -43,7 +42,6 @@ weight: 40
       * [DNS](#dns)
          * [CoreDNS](#coredns)
          * [FQDN](#fqdn)
-      * [etcd](#etcd)
       * [Taint &amp; Tolerations](#taint--tolerations)
          * [add taint to node](#add-taint-to-node)
          * [remove taint of node](#remove-taint-of-node)
@@ -51,8 +49,11 @@ weight: 40
       * [Upgrade](#upgrade)
          * [prepare node for upgrades](#prepare-node-for-upgrades)
          * [using kubeadm](#using-kubeadm)
+      * [Auth](#auth)
+         * [SA flow](#sa-flow)
+         * [CSR flow](#csr-flow)
 
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:27 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:43 PM CET -->
 
 <!--te-->
 ## kubectl

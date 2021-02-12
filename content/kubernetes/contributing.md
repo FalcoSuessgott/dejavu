@@ -11,5 +11,9 @@ cd kubernetes
 make WHAT=cmd/kubectl
 ./_output/bin/kubectl
 ```
-
-
+### test X
+```bash
+cd kubernetes
+# k8s.io/kubernetes added automatically
+make WHAT=./pkg/kubectl
+```

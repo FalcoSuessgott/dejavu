@@ -5,11 +5,10 @@ draft: false
 weight: 40
 ---
 <!--ts-->
-   * [Vim](#vim)
-      * [display tab and whitespaces](#display-tab-and-whitespaces)
-      * [delete everything after cursor](#delete-everything-after-cursor)
+         * [display tab and whitespaces](#display-tab-and-whitespaces)
+         * [delete everything after cursor](#delete-everything-after-cursor)
 
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:29 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:44 PM CET -->
 
 <!--te-->
 

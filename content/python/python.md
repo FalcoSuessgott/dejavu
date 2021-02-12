@@ -5,11 +5,10 @@ draft: false
 weight: 40
 ---
 <!--ts-->
-   * [Python](#python)
       * [pip module to rpm](#pip-module-to-rpm)
       * [short if else](#short-if-else)
 
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:28 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:44 PM CET -->
 
 <!--te-->
 

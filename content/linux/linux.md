@@ -14,12 +14,8 @@ weight: 40
          * [Ovierview DNS Records](#ovierview-dns-records)
          * [get public ip](#get-public-ip)
          * [/etc/nsswitch.conf](#etcnsswitchconf)
-      * [RHEL](#rhel)
-         * [Change Timezone](#change-timezone)
-         * [open port using firewalld](#open-port-using-firewalld)
-         * [list all version of rpm](#list-all-version-of-rpm)
 
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:27 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:43 PM CET -->
 
 <!--te-->
 ## General

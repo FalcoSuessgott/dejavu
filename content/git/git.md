@@ -6,12 +6,11 @@ draft: false
 weight: 40
 ---
 <!--ts-->
-   * [Git](#git)
-      * [delete local and remote tag](#delete-local-and-remote-tag)
-      * [delete all local and remote tags](#delete-all-local-and-remote-tags)
-      * [reset to commit](#reset-to-commit)
+         * [delete local and remote tag](#delete-local-and-remote-tag)
+         * [delete all local and remote tags](#delete-all-local-and-remote-tags)
+         * [reset to commit](#reset-to-commit)
 
-<!-- Added by: morelly_t1, at: Thu 21 Jan 2021 10:14:26 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:36:40 PM CET -->
 
 <!--te-->
 ---
