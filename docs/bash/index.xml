@@ -13,7 +13,7 @@
       <pubDate>Tue, 17 Oct 2017 15:26:15 +0000</pubDate>
       
       <guid>https://falcosuessgott.github.io/dejavu/bash/bash/</guid>
-      <description>  remove empty lines sed &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE insert/replace directly in file sed -i &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE test port connection $&amp;gt; nc -vz 10.244.1.4 3306 Connection to 10.244.1.4 3306 port [tcp/mysql] succeeded! </description>
+      <description>  remove empty lines sed &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE insert/replace directly in file sed -i &amp;#39;/^[[:space:]]*$/d&amp;#39; FILE test port connection $&amp;gt; nc -vz 10.244.1.4 3306 Connection to 10.244.1.4 3306 port [tcp/mysql] succeeded! recursive find and replace find . -type f -name &amp;#34;*.go&amp;#34; -print0 | xargs -0 sed -i &amp;#39;&amp;#39; -e &amp;#39;s/this/that/g&amp;#39; </description>
     </item>
     
   </channel>

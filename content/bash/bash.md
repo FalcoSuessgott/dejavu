@@ -8,7 +8,7 @@ weight: 40
 <!--ts-->
 
 
-<!-- Added by: morelly_t1, at: Fri 12 Feb 2021 02:44:38 PM CET -->
+<!-- Added by: morelly_t1, at: Fri 05 Mar 2021 08:37:27 PM CET -->
 
 <!--te-->
 
@@ -26,4 +26,9 @@ sed -i '/^[[:space:]]*$/d' FILE
 ```bash
 $> nc -vz 10.244.1.4 3306
 Connection to 10.244.1.4 3306 port [tcp/mysql] succeeded!
+```
+
+### recursive find and replace
+```bash
+find . -type f -name "*.go" -print0 | xargs -0 sed -i '' -e 's/this/that/g'
 ```
